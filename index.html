@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/style.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+    <nav class="topbar-container">
+        <!-- Barra principal superior -->
+        <div class="topbar">
+            <!-- Logo y subtítulo a la izquierda -->
+            <div class="topbar-logo d-flex flex-column">
+                <a href="./" class="text-black text-decoration-none">
+                    <span class="fw-bold fst-italic fs-6 fs-lg-5">Funeraria</span>
+                </a>
+                <small class="text-muted" style="font-size: 0.75rem;">La Paz, B.C.S</small>
+            </div>
+
+            <!-- OPCIONES PARA COMPUTADORA -->
+            <div class="topbar-options d-none d-lg-flex align-items-center gap-5">
+                <div class="topbar-item text-black">Carrozas</div>
+                <div class="topbar-item text-black">Catálogo</div>
+                <div class="topbar-item text-black">Pólizas</div>
+                <div class="topbar-item text-black">Instalaciones</div>
+                <div>
+                    <a href="#" class="btn text-white px-4 py-2"
+                        style="background-color: #c29b14; border-radius: 4px;">Contacto</a>
+                </div>
+            </div>
+
+            <!-- SECCIÓN PARA MÓVIL / TABLET -->
+            <div class="d-flex d-lg-none align-items-center gap-3">
+                <a href="#" class="btn text-white px-3 py-1"
+                    style="background-color: #c29b14; border-radius: 4px; font-size: 0.9rem;">Contacto</a>
+
+                <!-- Botón hamburguesa conectado al menú desplegable -->
+                <button class="btn text-black p-1 border-0" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#mobileMenu" aria-controls="mobileMenu" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor"
+                        class="bi bi-list" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- MENÚ DESPLEGABLE PARA MÓVIL -->
+        <div class="collapse d-lg-none bg-white border-bottom border-light" id="mobileMenu">
+            <div class="d-flex flex-column gap-3 py-3" style="padding-left: 1.25rem;">
+                <div class="topbar-menu-item text-black py-1">Carrozas</div>
+                <div class="topbar-menu-item text-black py-1">Catálogo</div>
+                <div class="topbar-menu-item text-black py-1">Pólizas</div>
+                <div class="topbar-menu-item text-black py-1">Instalaciones</div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="rejilla-top d-flex flex-column justify-content-center align-items-center text-white text-center px-3">
+
+        <!-- Eslogan Principal -->
+        <h1 class="fw-bold fst-italic mb-4"
+            style="max-width: 40rem; font-size: clamp(2rem, 4vw, 2.2rem); line-height: 1.3;">
+            "ESLOGAN DE LA EMPRESA"
+        </h1>
+
+        <!-- Botones de Acción (Textos actualizados) -->
+        <div class="d-flex justify-content-center gap-2 mb-4 w-100" style="max-width: 25rem;">
+            <a href="#" class="btn px-3 py-2 text-white fw-medium flex-fill"
+                style="background-color: #c29b14; border-radius: 4px; font-size: 0.95rem;">Contáctanos</a>
+            <a href="tel:" class="btn px-3 py-2 text-white fw-medium border border-secondary flex-fill"
+                style="border-radius: 4px; background: transparent; font-size: 0.95rem;">Llamar ahora</a>
+        </div>
+
+        <!-- Línea Divisoria -->
+        <hr class="w-100 mb-4 opacity-25 mx-auto" style="max-width: 45rem;">
+
+        <div class="container" style="max-width: 55rem;">
+            <div class="row text-center gy-3 justify-content-center">
+
+                <!-- Característica 1 -->
+                <div class="col-4">
+                    <div class="fw-bold rejilla-title">+00 años</div>
+                    <div class="text-white-50 rejilla-subtitle">de experiencia</div>
+                </div>
+
+                <!-- Característica 2 -->
+                <div class="col-4">
+                    <div class="fw-bold rejilla-title">Cobertura</div>
+                    <div class="text-white-50 rejilla-subtitle d-block d-md-none">en 5 municipios</div>
+                    <div class="text-white-50 rejilla-subtitle d-none d-md-block">directa en los 5 municipios de B.C.S.
+                    </div>
+                </div>
+
+                <!-- Característica 3 -->
+                <div class="col-4">
+                    <div class="fw-bold rejilla-title">24 horas</div>
+                    <div class="text-white-50 rejilla-subtitle">atención y traslado</div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- SECCIÓN ACERCA DE NOSOTROS -->
+    <section class="about-section">
+        <h6 class="text-uppercase fw-bold text-center mb-4 reveal" style="color: #c29b14; letter-spacing: 1.5px;">Acerca
+            de nosotros</h6>
+
+        <div class="row align-items-center g-5">
+            <div class="col-12 col-lg-7 reveal">
+                <h2 class="fw-bold about-heading mb-4 text-dark">
+                    Este es el titulo de la sección <span style="color: #c29b14;">sobre nosotros.</span>
+                </h2>
+                <p class="text-muted mb-0" style="font-size: 1rem; line-height: 1.6;">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean bibendum lorem nunc, sed sodales dui
+                    venenatis sed. In lacinia eros at porttitor pellentesque. Duis libero arcu, ornare vitae viverra
+                    eget, condimentum at nisi. Sed ex purus, maximus eget tincidunt elementum, rutrum sit amet metus.
+                    Nunc nunc ipsum, sollicitudin non lacinia a, tempor nec ex. Duis gravida efficitur accumsan.
+                    Vestibulum vehicula gravida sapien, quis suscipit tortor pulvinar a. Etiam ante metus, ornare ac
+                    sapien at, vestibulum placerat felis. Maecenas id ipsum diam. Praesent eget porta odio, a
+                    ullamcorper ipsum. Aenean mollis tortor euismod metus rhoncus molestie. Sed sapien tortor, pharetra
+                    eget suscipit a, posuere ut nisl. Maecenas in neque magna. Ut fringilla tortor vel ullamcorper
+                    semper. Ut placerat ornare enim in finibus. Pellentesque venenatis tortor ac enim semper tempus.
+
+                    Duis et vestibulum tortor, non fringilla orci. Pellentesque tristique, ipsum id pharetra
+                    pellentesque, elit justo porttitor ex, eu sodales quam est in risus. Morbi in lobortis justo.
+                    Integer ultrices rutrum sagittis. Donec luctus nec metus vel semper. Ut dolor justo, congue a
+                    fermentum et, mattis vitae justo. Praesent felis enim, scelerisque ut efficitur sit amet, convallis
+                    ac enim. Nunc venenatis rhoncus elementum. Etiam eu tellus sed ex finibus ultrices. Aliquam
+                    tristique hendrerit finibus. Curabitur ac felis porttitor, iaculis tellus sed, sodales lacus.
+                </p>
+            </div>
+
+            <div class="col-12 col-lg-5 reveal">
+                <div
+                    class="about-stat-box p-5 text-center d-flex flex-column justify-content-center align-items-center">
+                    <div class="fw-bold about-stat-number mb-2">00+</div>
+                    <div class="text-uppercase fw-semibold text-dark"
+                        style="font-size: 0.85rem; letter-spacing: 1.5px;">
+                        Años de experiencia en el ambiente funerario
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- SECCIÓN NUESTROS SERVICIOS -->
+    <section id="sectionServices" class="services-section">
+
+        <!-- Encabezado centrado -->
+        <div class="text-center mb-5 reveal">
+            <h6 class="text-uppercase fw-bold mb-3" style="color: #c29b14; letter-spacing: 1.5px;">Nuestros servicios
+            </h6>
+            <h2 class="fw-bold fs-2 fs-md-1 mb-3 fst-italic text-dark">Todo lo que tu familia necesita, en un solo lugar
+            </h2>
+            <p class="text-muted mx-auto" style="max-width: 38rem; font-size: 0.95rem;">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean bibendum lorem nunc, sed sodales dui
+                venenatis sed. In lacinia eros at porttitor pellentesque.
+            </p>
+        </div>
+
+        <!-- Rejilla de tarjetas de servicios -->
+        <!-- Usamos col-12 (móvil), col-md-6 (tableta: 2 por fila), col-lg-3 (escritorio: 4 en línea) -->
+        <div class="row g-4">
+
+            <!-- Servicio 1: Carroza -->
+            <div class="col-12 col-md-6 col-lg-3 reveal" style="--reveal-delay: 0s;">
+                <div class="service-card p-4 p-xl-5 h-100 bg-white d-flex flex-column justify-content-between">
+                    <div class="mb-3" style="color: #c29b14;">
+                        <!-- Icono SVG de Carroza -->
+                        <img src="assets/img/carroza_icon.svg" alt="carrozaIcon" width="56" height="56">
+
+                    </div>
+                    <h4 class="fw-bold fst-italic mb-3 fs-5">Servicio 1</h4>
+                    <p class="text-muted small mb-0" style="line-height: 1.6;">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean bibendum lorem nunc, sed sodales
+                        dui venenatis sed. In lacinia eros at porttitor pellentesque.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Servicio 2: Crematorio -->
+            <div class="col-12 col-md-6 col-lg-3 reveal" style="--reveal-delay: 0.12s;">
+                <div class="service-card p-4 p-xl-5 h-100 bg-white d-flex flex-column justify-content-between">
+                    <div class="mb-3" style="color: #c29b14;">
+                        <!-- Icono SVG de Crematorio / Fuego -->
+                        <img src="assets/img/crematorio_icon.svg" alt="FuegoIcon" width="56" height="56">
+                    </div>
+                    <h4 class="fw-bold fst-italic mb-3 fs-5">Servicio 2</h4>
+                    <p class="text-muted small mb-0" style="line-height: 1.6;">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean bibendum lorem nunc, sed sodales
+                        dui venenatis sed. In lacinia eros at porttitor pellentesque.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Servicio 3: Capillas -->
+            <div class="col-12 col-md-6 col-lg-3 reveal" style="--reveal-delay: 0.24s;">
+                <div class="service-card p-4 p-xl-5 h-100 bg-white d-flex flex-column justify-content-between">
+                    <div class="mb-3" style="color: #c29b14;">
+                        <!-- Icono SVG de Capilla / Edificio -->
+                        <img src="assets/img/capilla_icon.svg" alt="capillaIcon" width="56" height="56">
+
+                    </div>
+                    <h4 class="fw-bold fst-italic mb-3 fs-5">Servicio 3</h4>
+                    <p class="text-muted small mb-0" style="line-height: 1.6;">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean bibendum lorem nunc, sed sodales
+                        dui venenatis sed. In lacinia eros at porttitor pellentesque.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Servicio 4: Ataúdes y urnas -->
+            <div class="col-12 col-md-6 col-lg-3 reveal" style="--reveal-delay: 0.36s;">
+                <div class="service-card p-4 p-xl-5 h-100 bg-white d-flex flex-column justify-content-between">
+                    <div class="mb-3" style="color: #c29b14;">
+                        <!-- Icono SVG de Urna / Ataúd -->
+                        <img src="assets/img/ataudesUrnas_icon.svg" alt="ataudesUrnas" width="56" height="56">
+
+                    </div>
+                    <h4 class="fw-bold fst-italic mb-3 fs-5">Servicio 4</h4>
+                    <p class="text-muted small mb-0" style="line-height: 1.6;">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean bibendum lorem nunc, sed sodales
+                        dui venenatis sed. In lacinia eros at porttitor pellentesque.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- SECCIÓN NUESTRO CATÁLOGO -->
+    <section id="sectionCatalogue" class="catalog-section">
+
+        <!-- Encabezado de la sección -->
+        <div class="text-center mb-5 reveal">
+            <h6 class="text-uppercase fw-bold mb-3" style="color: #c29b14; letter-spacing: 1.5px;">Nuestro catálogo</h6>
+            <h2 class="fw-bold fs-2 fs-md-1 mb-3 fst-italic text-dark">Conoce nuestras opciones de distintos productos
+            </h2>
+            <p class="text-muted mx-auto" style="max-width: 38rem; font-size: 0.95rem;">
+                Diferentes estilos y acabados para acompañar a tu familia según sus necesidades y preferencias.
+            </p>
+        </div>
+
+        <!-- Rejilla de productos: 3 columnas en escritorio (lg), 2 en tablet (md), 1 en móvil -->
+        <div class="row g-4 justify-content-center mb-5">
+
+            <!-- Tarjeta 1: Ataúdes -->
+            <div class="col-12 col-md-6 col-lg-4 reveal" style="--reveal-delay: 0.12s;">
+                <div class="catalog-card h-100 d-flex flex-column">
+                    <img src="assets/img/placeholder.jpeg" alt="Ataúdes" class="catalog-img">
+                    <div class="p-4 d-flex flex-column flex-grow-1 justify-content-between">
+                        <div>
+                            <h4 class="fw-bold fst-italic mb-2 fs-5 text-dark">Producto 1</h4>
+                            <p class="text-muted small mb-4" style="line-height: 1.6;">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean bibendum lorem nunc, sed
+                                sodales dui
+                                venenatis sed. In lacinia eros at porttitor pellentesque.
+                            </p>
+                        </div>
+                        <div>
+                            <a href="#" class="text-decoration-none fw-semibold small" style="color: #c29b14;">
+                                Ver opciones &rarr;
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta 2: Urnas -->
+            <div class="col-12 col-md-6 col-lg-4 reveal" style="--reveal-delay: 0.24s;">
+                <div class="catalog-card h-100 d-flex flex-column">
+                    <img src="assets/img/placeholder.jpeg" alt="Urnas" class="catalog-img">
+                    <div class="p-4 d-flex flex-column flex-grow-1 justify-content-between">
+                        <div>
+                            <h4 class="fw-bold fst-italic mb-2 fs-5 text-dark">Producto 2</h4>
+                            <p class="text-muted small mb-4" style="line-height: 1.6;">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean bibendum lorem nunc, sed
+                                sodales dui
+                                venenatis sed. In lacinia eros at porttitor pellentesque.
+                            </p>
+                        </div>
+                        <div>
+                            <a href="#" class="text-decoration-none fw-semibold small" style="color: #c29b14;">
+                                Ver opciones &rarr;
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta 3: Relicarios -->
+            <div class="col-12 col-md-6 col-lg-4 reveal" style="--reveal-delay: 0.36s;">
+                <div class="catalog-card h-100 d-flex flex-column">
+                    <img src="assets/img/placeholder.jpeg" alt="Relicarios" class="catalog-img">
+                    <div class="p-4 d-flex flex-column flex-grow-1 justify-content-between">
+                        <div>
+                            <h4 class="fw-bold fst-italic mb-2 fs-5 text-dark">Producto 3</h4>
+                            <p class="text-muted small mb-4" style="line-height: 1.6;">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean bibendum lorem nunc, sed
+                                sodales dui
+                                venenatis sed. In lacinia eros at porttitor pellentesque.
+                            </p>
+                        </div>
+                        <div>
+                            <a href="#" class="text-decoration-none fw-semibold small" style="color: #c29b14;">
+                                Ver opciones &rarr;
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Botón inferior centrado -->
+        <div class="text-center reveal">
+            <a href="#" class="btn btn-catalog-all text-decoration-none shadow-sm">
+                Ver catálogo completo
+            </a>
+        </div>
+
+    </section>
+    <!-- SECCIÓN PÓLIZAS DE SEGURO -->
+    <section id="sectionPoliza" class="poliza-section">
+
+        <!-- Encabezado de la sección -->
+        <div class="text-center mb-5 reveal">
+            <h6 class="text-uppercase fw-bold mb-3" style="color: #c29b14; letter-spacing: 1.5px;">Pólizas de seguro
+            </h6>
+            <h2 class="fw-bold fs-2 fs-md-1 mb-3 fst-italic text-dark">Protege a tu familia con anticipación</h2>
+            <p class="text-muted mx-auto" style="max-width: 38rem; font-size: 0.95rem;">
+                Contamos con instalaciones propias y personal capacitado para atender cada detalle con respeto.
+            </p>
+        </div>
+
+        <!-- Rejilla de Pólizas -->
+        <div class="row g-4 justify-content-center mb-5">
+
+            <!-- Tarjeta 1: Individual -->
+            <div class="col-12 col-lg-6 reveal" style="--reveal-delay: 0.12s;">
+                <div class="poliza-card p-4 p-md-5 h-100 d-flex flex-column justify-content-between">
+                    <div>
+                        <h4 class="fw-bold fst-italic mb-3 fs-4 text-dark">Plan 1</h4>
+                        <p class="text-muted mb-4" style="font-size: 0.95rem; line-height: 1.6;">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean bibendum lorem nunc, sed
+                            sodales dui
+                            venenatis sed. In lacinia eros at porttitor pellentesque.
+                        </p>
+                    </div>
+                    <div>
+                        <a href="#" class="text-decoration-none fw-semibold small" style="color: #c29b14;">
+                            Más información &rarr;
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta 2: Familiar -->
+            <div class="col-12 col-lg-6 reveal" style="--reveal-delay: 0.24s;">
+                <div class="poliza-card p-4 p-md-5 h-100 d-flex flex-column justify-content-between">
+                    <div>
+                        <h4 class="fw-bold fst-italic mb-3 fs-4 text-dark">Plan 2</h4>
+                        <p class="text-muted mb-4" style="font-size: 0.95rem; line-height: 1.6;">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean bibendum lorem nunc, sed
+                            sodales dui
+                            venenatis sed. In lacinia eros at porttitor pellentesque.
+                        </p>
+                    </div>
+                    <div>
+                        <a href="#" class="text-decoration-none fw-semibold small" style="color: #c29b14;">
+                            Más información &rarr;
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- SECCIÓN EQUIPO / PERSONAL CAPACITADO -->
+        <div class="team-wrapper p-4 p-md-5 reveal">
+            <div class="row align-items-start g-4">
+
+                <!-- Texto Izquierda -->
+                <div class="col-12 col-lg-6">
+                    <h6 class="text-uppercase fw-bold mb-3" style="color: #c29b14; letter-spacing: 1.5px;">Nuestro
+                        personal</h6>
+                    <h2 class="fw-bold fst-italic mb-4 text-dark"
+                        style="font-size: clamp(1.8rem, 2.5vw, 2.4rem); line-height: 1.3;">
+                        Personal capacitado para acompañarte
+                    </h2>
+                    <p class="text-muted mb-0" style="font-size: 1rem; line-height: 1.6;">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean bibendum lorem nunc, sed sodales
+                        dui venenatis sed. In lacinia eros at porttitor pellentesque. Duis libero arcu, ornare vitae
+                        viverra eget, condimentum at nisi. Sed ex purus, maximus eget tincidunt elementum, rutrum sit
+                        amet metus. Nunc nunc ipsum, sollicitudin non lacinia a, tempor nec ex. Duis gravida efficitur
+                        accumsan. Vestibulum vehicula gravida sapien, quis suscipit tortor pulvinar a. Etiam ante metus,
+                        ornare ac sapien at, vestibulum placerat felis. Maecenas id ipsum diam. Praesent eget porta
+                        odio, a ullamcorper ipsum.
+                    </p>
+                </div>
+
+                <!-- Imagen Derecha -->
+                <div class="col-12 col-lg-6">
+                    <img src="assets/img/placeholder.jpeg" alt="Personal de Funeraria"
+                        class="team-img shadow-sm">
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+    <!-- SECCIÓN CARROZAS -->
+    <section id="sectionFloat" class="float-section">
+
+        <!-- Encabezado de la sección -->
+        <div class="text-center mb-5 reveal">
+            <h6 class="text-uppercase fw-bold mb-3" style="color: #c29b14; letter-spacing: 1.5px;">Nuestras carrozas
+            </h6>
+            <h2 class="fw-bold fs-2 fs-md-1 mb-3 fst-italic text-dark">Conoce nuestras opciones de carrozas</h2>
+            <p class="text-muted mx-auto" style="max-width: 38rem; font-size: 0.95rem;">
+                Diferentes estilos y acabados para acompañar a tu familia según sus necesidades y preferencias.
+            </p>
+        </div>
+
+        <!-- Rejilla de carrozas: 3 columnas en escritorio (lg), 2 en tablet (md), 1 en móvil -->
+        <div class="row g-4 justify-content-center mb-5">
+
+            <!-- Tarjeta 1: Carroza 1 -->
+            <div class="col-12 col-md-6 col-lg-4 reveal" style="--reveal-delay: 0.12s;">
+                <div class="float-card h-100 d-flex flex-column">
+                    <img src="assets/img/placeholder.jpeg" alt="Carroza 1" class="float-img">
+                    <div class="p-4 d-flex flex-column flex-grow-1 justify-content-between">
+                        <div>
+                            <h4 class="fw-bold fst-italic mb-2 fs-5 text-dark">Carroza 1</h4>
+                            <p class="text-muted small mb-4" style="line-height: 1.6;">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean bibendum lorem nunc, sed
+                                sodales dui venenatis sed. In lacinia eros at porttitor pellentesque.
+                            </p>
+                        </div>
+                        <div>
+                            <a href="#" class="text-decoration-none fw-semibold small" style="color: #c29b14;">
+                                Ver opciones &rarr;
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta 2: Carroza 2 -->
+            <div class="col-12 col-md-6 col-lg-4 reveal" style="--reveal-delay: 0.24s;">
+                <div class="float-card h-100 d-flex flex-column">
+                    <img src="assets/img/placeholder.jpeg" alt="Carroza 2" class="float-img">
+                    <div class="p-4 d-flex flex-column flex-grow-1 justify-content-between">
+                        <div>
+                            <h4 class="fw-bold fst-italic mb-2 fs-5 text-dark">Carroza 2</h4>
+                            <p class="text-muted small mb-4" style="line-height: 1.6;">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean bibendum lorem nunc, sed
+                                sodales dui venenatis sed. In lacinia eros at porttitor pellentesque.
+                            </p>
+                        </div>
+                        <div>
+                            <a href="#" class="text-decoration-none fw-semibold small" style="color: #c29b14;">
+                                Ver opciones &rarr;
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta 3: Carroza 3 -->
+            <div class="col-12 col-md-6 col-lg-4 reveal" style="--reveal-delay: 0.36s;">
+                <div class="float-card h-100 d-flex flex-column">
+                    <img src="assets/img/placeholder.jpeg" alt="Carroza 3" class="float-img">
+                    <div class="p-4 d-flex flex-column flex-grow-1 justify-content-between">
+                        <div>
+                            <h4 class="fw-bold fst-italic mb-2 fs-5 text-dark">Carroza 3</h4>
+                            <p class="text-muted small mb-4" style="line-height: 1.6;">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean bibendum lorem nunc, sed
+                                sodales dui venenatis sed. In lacinia eros at porttitor pellentesque.
+                            </p>
+                        </div>
+                        <div>
+                            <a href="#" class="text-decoration-none fw-semibold small" style="color: #c29b14;">
+                                Ver opciones &rarr;
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Botón inferior centrado -->
+        <div class="text-center reveal">
+            <a href="#" class="btn btn-float-all text-decoration-none shadow-sm">
+                Ver todas las carrozas
+            </a>
+        </div>
+    </section>
+    <!-- SECCIÓN INSTALACIONES -->
+    <section id="sectionInstalaciones" class="instalaciones-section">
+
+        <!-- Encabezado de la sección -->
+        <div class="text-center mb-5">
+            <h6 class="text-uppercase fw-bold mb-3" style="color: #c29b14; letter-spacing: 1.5px;">Instalaciones</h6>
+            <h2 class="fw-bold fs-2 fs-md-1 mb-3 fst-italic text-dark">Galería de instalaciones</h2>
+            <p class="text-muted mx-auto" style="max-width: 38rem; font-size: 0.95rem;">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean bibendum lorem nunc, sed sodales dui
+                venenatis sed. In lacinia eros at porttitor pellentesque.
+            </p>
+        </div>
+
+        <!-- Rejilla de galería: 3 columnas en escritorio (lg), 2 en tablet (md), 1 en móvil (col-12) -->
+        <div class="row g-4 justify-content-center mb-5">
+
+            <!-- Imagen 1 -->
+            <div class="col-12 col-md-6 col-lg-4 reveal" style="--reveal-delay: 0.12s;">
+                <div class="instalacion-card h-100">
+                    <img src="assets/img/placeholder.jpeg" alt="Sala de velación" class="instalacion-img">
+                </div>
+            </div>
+
+            <!-- Imagen 2 -->
+            <div class="col-12 col-md-6 col-lg-4 reveal" style="--reveal-delay: 0.24s;">
+                <div class="instalacion-card h-100">
+                    <img src="assets/img/placeholder.jpeg" alt="Detalle de capilla" class="instalacion-img">
+                </div>
+            </div>
+
+            <!-- Imagen 3 -->
+            <div class="col-12 col-md-6 col-lg-4 reveal" style="--reveal-delay: 0.36s;">
+                <div class="instalacion-card h-100">
+                    <img src="assets/img/placeholder.jpeg" alt="Área de descanso" class="instalacion-img">
+                </div>
+            </div>
+
+            <!-- Imagen 4 -->
+            <div class="col-12 col-md-6 col-lg-4 reveal" style="--reveal-delay: 0.12s;">
+                <div class="instalacion-card h-100">
+                    <img src="assets/img/placeholder.jpeg" alt="Cafetería y servicio" class="instalacion-img">
+                </div>
+            </div>
+
+            <!-- Imagen 5 -->
+            <div class="col-12 col-md-6 col-lg-4 reveal" style="--reveal-delay: 0.24s;">
+                <div class="instalacion-card h-100">
+                    <img src="assets/img/placeholder.jpeg" alt="Fachada de funeraria" class="instalacion-img">
+                </div>
+            </div>
+
+            <!-- Imagen 6 -->
+            <div class="col-12 col-md-6 col-lg-4 reveal" style="--reveal-delay: 0.36s;">
+                <div class="instalacion-card h-100">
+                    <img src="assets/img/placeholder.jpeg" alt="Pasillo principal" class="instalacion-img">
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Botón inferior centrado -->
+        <div class="text-center reveal">
+            <a href="#" class="btn btn-instalaciones-all text-decoration-none shadow-sm">
+                Ver instalaciones completas
+            </a>
+        </div>
+
+    </section>
+
+    <!-- SECCIÓN CONTACTO -->
+    <section id="seccionContact" class="contacto-section text-white">
+
+        <div class="row align-items-start g-5">
+
+            <!-- Columna Izquierda: Información de contacto -->
+            <div class="col-12 col-lg-6">
+                <h6 class="text-uppercase fw-bold mb-3" style="color: #c29b14; letter-spacing: 1.5px;">Contáctanos</h6>
+                <h2 class="fw-bold fst-italic mb-4" style="font-size: clamp(1.8rem, 2.5vw, 2.3rem); line-height: 1.3;">
+                    Estamos para acompañarte, las 24 horas
+                </h2>
+
+                <div class="d-flex flex-column gap-4 mt-4">
+
+                    <!-- Teléfono -->
+                    <div class="contacto-item pb-3 d-flex align-start gap-3">
+                        <div style="color: #c29b14; font-size: 1.25rem;">
+                            <i class="bi bi-telephone-fill"></i>
+                        </div>
+                        <div>
+                            <div class="text-white-50 small mb-1">Teléfono</div>
+                            <div class="fw-medium">000 000 0000 · 000 000 0000</div>
+                        </div>
+                    </div>
+
+                    <!-- Correo -->
+                    <div class="contacto-item pb-3 d-flex align-start gap-3">
+                        <div style="color: #c29b14; font-size: 1.25rem;">
+                            <i class="bi bi-envelope-fill"></i>
+                        </div>
+                        <div>
+                            <div class="text-white-50 small mb-1">Correo de contacto</div>
+                            <div class="fw-medium">correo@ejemplo.com</div>
+                        </div>
+                    </div>
+
+                    <!-- Dirección -->
+                    <div class="contacto-item pb-3 d-flex align-start gap-3">
+                        <div style="color: #c29b14; font-size: 1.25rem;">
+                            <i class="bi bi-geo-alt-fill"></i>
+                        </div>
+                        <div>
+                            <div class="text-white-50 small mb-1">Dirección</div>
+                            <div class="fw-medium" style="line-height: 1.5;">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean bibendum lorem nunc, sed
+                                sodales dui venenatis sed. In lacinia eros at porttitor pellentesque.
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Columna Derecha: Formulario de contacto -->
+            <div class="col-12 col-lg-6">
+                <div class="contacto-form-wrapper p-4 p-md-5 text-dark">
+                    <div id="formLoader" class="form-loader" hidden>
+                        <img src="/assets/gif/spinner.svg" alt="Enviando...">
+                    </div>
+                    <form id="frm-email">
+                        <!-- Campo Nombre -->
+                        <div class="mb-3">
+                            <label for="nombre" class="form-label text-muted small fw-medium">Tu nombre</label>
+                            <input type="text" class="form-control contacto-input py-2" id="name" required>
+                        </div>
+
+                        <!-- Campo Correo -->
+                        <div class="mb-3">
+                            <label for="correo" class="form-label text-muted small fw-medium">Tu correo</label>
+                            <input type="email" class="form-control contacto-input py-2" id="email" required>
+                        </div>
+
+                        <!-- Campo Celular -->
+                        <div class="mb-3">
+                            <label for="celular" class="form-label text-muted small fw-medium">Tu celular</label>
+                            <input type="tel" class="form-control contacto-input py-2" id="tel">
+                        </div>
+
+                        <!-- Campo Mensaje -->
+                        <div class="mb-4">
+                            <label for="mensaje" class="form-label text-muted small fw-medium">Tu mensaje
+                                (opcional)</label>
+                            <textarea class="form-control contacto-input py-2" id="message" rows="3"></textarea>
+                        </div>
+
+                        <div class="g-recaptcha" data-sitekey="6Lfb-7ctAAAAAP1ViGyXo-koXNDKmwLtwYvwHUDg"></div>
+                        <br />
+                        <p hidden class="msg msg-success" id="successMsg"></p>
+                        <p hidden class="msg msg-error" id="errorMsg"></p>
+
+                        <!-- Botón Enviar -->
+                        <!-- Botón Enviar -->
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-enviar py-2" id="btnEnviar">
+                                <span id="btnText">Enviar mensaje</span>
+
+                                <span id="btnLoader" hidden>
+                                    <span class="spinner-border spinner-border-sm me-2" role="status"
+                                        aria-hidden="true"></span>
+                                    Enviando...
+                                </span>
+                            </button>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+    <!-- FOOTER -->
+    <footer class="footer-section text-white">
+
+        <!-- Contenido principal del footer (3 columnas) -->
+        <div class="row g-4 justify-content-between mb-5">
+
+            <!-- Columna 1: Información de la empresa -->
+            <div class="col-12 col-lg-5">
+                <h5 class="fw-bold mb-3 text-white">Funeraria</h5>
+                <p class="text-white-50 small mb-0" style="line-height: 1.6; max-width: 28rem;">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean bibendum lorem nunc, sed sodales dui
+                    venenatis sed. In lacinia eros at porttitor pellentesque.
+                </p>
+            </div>
+
+            <!-- Columna 2: Navegación -->
+            <div class="col-6 col-lg-3">
+                <h6 class="text-uppercase fw-bold mb-3 small" style="color: #c29b14; letter-spacing: 1px;">Navegación
+                </h6>
+                <ul class="list-unstyled d-flex flex-column gap-2 mb-0">
+                    <li><a href="#sectionServices" class="footer-link">Servicios</a></li>
+                    <li><a href="#sectionCatalogue" class="footer-link">Catálogo</a></li>
+                    <li><a href="#sectionPoliza" class="footer-link">Pólizas</a></li>
+                    <li><a href="#sectionInstalaciones" class="footer-link">Instalaciones</a></li>
+                </ul>
+            </div>
+
+            <!-- Columna 3: Contacto -->
+            <div class="col-6 col-lg-3">
+                <h6 class="text-uppercase fw-bold mb-3 small" style="color: #c29b14; letter-spacing: 1px;">Contacto</h6>
+                <ul class="list-unstyled d-flex flex-column gap-2 mb-0">
+                    <li><a href="tel:6121961598" class="footer-link">000-000-0000</a></li>
+                    <li><a href="#" class="footer-link">Whatsapp</a></li>
+                    <li><a href="#" class="footer-link">Cómo llegar</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- Línea divisoria inferior -->
+        <hr class="border-secondary opacity-25 mb-4">
+
+        <!-- Derechos de autor -->
+        <div class="text-center text-white-50 small">
+            &copy; <span id="year"></span> Empresa funeraria. Todos los derechos reservados.
+        </div>
+
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+
+    <!-- Animaciones al hacer scroll (reveal on scroll) -->
+    <script>
+        (function () {
+            var revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+
+            if (!('IntersectionObserver' in window)) {
+                // Fallback: si el navegador no soporta IntersectionObserver, mostrar todo directo
+                revealElements.forEach(function (el) {
+                    el.classList.add('reveal-visible');
+                });
+                return;
+            }
+
+            var observer = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('reveal-visible');
+                        observer.unobserve(entry.target); // Solo anima una vez
+                    }
+                });
+            }, {
+                root: null,
+                rootMargin: '0px 0px -10% 0px', // Se activa un poco antes de llegar al final del viewport
+                threshold: 0.15
+            });
+
+            revealElements.forEach(function (el) {
+                observer.observe(el);
+            });
+        })();
+    </script>
+
+    <script>
+        const inputField = document.getElementById('tel');
+
+        inputField.addEventListener('input', function () {
+            // Allow numbers only and limit to 15 digits
+            this.value = this.value.replace(/\D/g, '').slice(0, 15);
+        });
+    </script>
+
+    <script>
+        document.getElementById("year").innerHTML = new Date().getFullYear();
+    </script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="/index_form.js"></script>
+</body>
+
+</html>
