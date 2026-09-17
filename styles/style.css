@@ -174,8 +174,45 @@ body {
     display: block;
 }
 
-/* ------------------- INDEX --------------------- */
+/* ------------------- BOTÓN FIXED WHATSAPP --------------------- */
 
+.whats-app {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    bottom: 40px;
+    right: 15px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50%;
+    box-shadow: 3px 4px 10px rgba(0, 0, 0, 0.2); 
+    z-index: 100;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    flex-shrink: 0; 
+    
+    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.whats-app img {
+    width: 32px;
+    height: 32px;
+    display: block; 
+    margin: 0;
+}
+
+.whats-app:hover {
+    background-color: #20ba5a; 
+    transform: scale(1.1) translateY(-3px); /* Se expande un 10% y se eleva un poco */
+    box-shadow: 0 6px 16px rgba(37, 211, 102, 0.4);
+}
+
+.my-float {
+    margin-top: 10px;
+}
 
 /* ------------------- rejilla top --------------------- */
 
