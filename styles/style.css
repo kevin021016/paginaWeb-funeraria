@@ -92,7 +92,7 @@ body {
 }
 
 /* RESPONSIVO PARA CELULARES Y TABLETS */
-@media (max-width: 991.98px) {
+@media (max-width: 1057px) {
     .topbar {
         padding-inline: 1.25rem;
         /* Reduce el margen en celular para aprovechar todo el ancho */
@@ -115,28 +115,55 @@ body {
     background-color: #a6810f;
 }
 
+/* ------------------- TOPBAR ITEMS --------------------- */
+
 .topbar-item {
     cursor: pointer;
     font-family: sans-serif;
     letter-spacing: 1.2px;
     font-size: 0.78rem;
     font-weight: 450;
+    position: relative;
+    padding-bottom: 3px;
+    display: inline-block;
 }
+
 .topbar-item:hover {
-    color: #FAC226;
+    color: #c29b14;
+}
+
+.topbar-item::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: #c29b14;
+    transition: width 0.3s ease-in-out;
+}
+
+.topbar-item:hover::after {
+    width: 100%;
+}
+
+.topbar-item.active::after {
+    width: 100%;
+}
+
+.topbar-item.active {
+    color: #c29b14;
+    font-weight: 600;
 }
 
 .topbar-menu-item {
     cursor: pointer;
-    /* Añadimos una transición suave para que el cambio de color y tamaño no sea brusco */
     transition: all 0.2s ease-in-out;
 }
 
 .topbar-menu-item:hover:active {
     background-color: #d1d1d1;
-    /* Redondea los bordes del fondo */
     border-radius: 4px;
-    /* Hace que el fondo sea más ancho vertical y horizontalmente alrededor del texto */
 }
 
 .topbar-logo img {
@@ -229,7 +256,7 @@ body {
 }
 
 /* RESPONSIVO PARA CELULARES Y TABLETS */
-@media (max-width: 991.98px) {
+@media (max-width: 1057px) {
     .about-section {
         padding-inline: 1.25rem;
     }
@@ -259,7 +286,7 @@ body {
 
 
 /* RESPONSIVO PARA CELULARES Y TABLETS (Igual que la topbar) */
-@media (max-width: 991.98px) {
+@media (max-width: 1057px) {
     .services-section {
         padding-inline: 1.25rem;
     }
@@ -336,7 +363,7 @@ body {
 }
 
 /* RESPONSIVO PARA CELULARES Y TABLETS */
-@media (max-width: 991.98px) {
+@media (max-width: 1057px) {
     .catalog-section {
         padding-inline: 1.25rem;
         padding-block: 3rem;
@@ -415,7 +442,7 @@ body {
 }
 
 /* RESPONSIVO PARA CELULARES Y TABLETS */
-@media (max-width: 991.98px) {
+@media (max-width: 1057px) {
     .poliza-section {
         padding-inline: 1.25rem;
         padding-block: 3rem;
@@ -487,7 +514,7 @@ body {
 }
 
 /* RESPONSIVO PARA CELULARES Y TABLETS */
-@media (max-width: 991.98px) {
+@media (max-width: 1057px) {
     .float-section {
         padding-inline: 1.25rem;
         padding-block: 3rem;
@@ -540,7 +567,7 @@ body {
 }
 
 /* RESPONSIVO PARA CELULARES Y TABLETS */
-@media (max-width: 991.98px) {
+@media (max-width: 1057px) {
     .instalaciones-section {
         padding-inline: 1.25rem;
         padding-block: 3rem;
@@ -599,7 +626,7 @@ body {
 }
 
 /* RESPONSIVO PARA CELULARES Y TABLETS */
-@media (max-width: 991.98px) {
+@media (max-width: 1057px) {
     .contacto-section {
         padding-inline: 1.25rem;
         padding-block: 3rem;
@@ -630,7 +657,7 @@ body {
 }
 
 /* RESPONSIVO PARA CELULARES Y TABLETS */
-@media (max-width: 991.98px) {
+@media (max-width: 1057px) {
     .footer-section {
         padding-inline: 1.25rem;
         padding-top: 3rem;
