@@ -32,10 +32,7 @@
                 <div class="topbar-item">CATÁLOGO</div>
                 <div class="topbar-item">PÓLIZAS</div>
                 <div class="topbar-item">INSTALACIONES</div>
-                <div>
-                    <a href="#" class="btn topbar-btn text-white px-4 py-2"
-                        style="border-radius: 4px;">Contacto</a>
-                </div>
+               
             </div>
 
             <!-- SECCIÓN PARA MÓVIL / TABLET -->
@@ -77,11 +74,28 @@
         </h1>
 
         <!-- Botones de Acción (Textos actualizados) -->
-        <div class="d-flex justify-content-center gap-2 mb-4 w-100" style="max-width: 25rem;">
-            <a href="#" class="btn px-3 py-2 text-white fw-medium flex-fill"
-                style="background-color: #c29b14; border-radius: 4px; font-size: 0.95rem;">Contáctanos</a>
-            <a href="tel:" class="btn px-3 py-2 text-white fw-medium border border-secondary flex-fill"
-                style="border-radius: 4px; background: transparent; font-size: 0.95rem;">Llamar ahora</a>
+        <!-- Contenedor de botones de acción -->
+        <div class="d-flex flex-column flex-md-row justify-content-center gap-3 mb-4 w-100 mx-auto"
+            style="max-width: 35rem;">
+
+            <!-- Botón 1: Contáctanos (Visible siempre) -->
+            <a href="#seccionContact" class="btn px-4 py-2 text-white fw-medium flex-md-fill btn-primary-action">Contáctanos</a>
+
+            <!-- Botón 2 (Móvil y Tablet): Llamada telefónica normal -->
+            <!-- d-block d-md-none significa: muéstrate en celular/tablet, escóndete en desktop -->
+            <a href="tel:6122005505"
+                class="btn px-4 py-2 text-white fw-medium flex-md-fill btn-outline-action d-block d-md-none">
+                <i class="bi bi-telephone-fill me-2"></i> Llamar ahora
+            </a>
+
+            <!-- Botón 2 (Desktop): WhatsApp -->
+            <!-- d-none d-md-block significa: escóndete en celular/tablet, muéstrate en desktop -->
+            <a href="https://wa.me/526122005505?text=Hola,%20necesito%20información%20sobre%20sus%20servicios%20funerarios."
+                target="_blank"
+                class="btn px-4 py-2 text-white fw-medium flex-md-fill btn-whatsapp-action d-none d-md-block">
+                <i class="bi bi-whatsapp me-2"></i> WhatsApp
+            </a>
+
         </div>
 
         <!-- Línea Divisoria -->
@@ -414,8 +428,7 @@
 
                 <!-- Imagen Derecha -->
                 <div class="col-12 col-lg-6">
-                    <img src="assets/img/placeholder.jpeg" alt="Personal de Funeraria"
-                        class="team-img shadow-sm">
+                    <img src="assets/img/placeholder.jpeg" alt="Personal de Funeraria" class="team-img shadow-sm">
                 </div>
 
             </div>
@@ -739,8 +752,8 @@
 
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-        crossorigin="anonymous"></script>
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">
+    </script>
 
     <!-- Animaciones al hacer scroll (reveal on scroll) -->
     <script>

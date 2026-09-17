@@ -38,6 +38,9 @@ body {
 #sectionCatalogue {
     scroll-margin-top: 4rem;
 }
+#seccionContact {
+    scroll-margin-top: 4rem;
+}
 
 .contacto-form-wrapper {
     position: relative;
@@ -198,6 +201,55 @@ body {
 
 .rejilla-subtitle {
     font-size: 0.70rem;
+}
+
+/* ------------------- BOTONES DE ACCIÓN (INICIO) --------------------- */
+
+.btn-primary-action {
+    background-color: #c29b14;
+    border: 1px solid #c29b14;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.btn-primary-action:hover {
+    background-color: #aa8610;
+    border-color: #aa8610;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(194, 155, 20, 0.3);
+}
+
+.btn-outline-action {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 4px;
+    font-size: 0.95rem;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-outline-action:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: #ffffff;
+    transform: translateY(-2px);
+    color: #ffffff;
+}
+
+.btn-whatsapp-action {
+    background-color: #1F2E33;
+    border: 1px solid #1F2E33;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    color: #ffffff;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-whatsapp-action:hover {
+    background-color: #2c3f46;
+    border-color: #2c3f46;
+    transform: translateY(-2px);
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(18, 26, 21, 0.3);
 }
 
 /* TAMAÑOS AMPLIOS (Para computadoras a partir de 992px de ancho) */
