@@ -38,6 +38,7 @@ body {
 #sectionCatalogue {
     scroll-margin-top: 4rem;
 }
+
 #seccionContact {
     scroll-margin-top: 4rem;
 }
@@ -185,33 +186,210 @@ body {
     background-color: #25d366;
     color: #FFF;
     border-radius: 50%;
-    box-shadow: 3px 4px 10px rgba(0, 0, 0, 0.2); 
+    box-shadow: 3px 4px 10px rgba(0, 0, 0, 0.2);
     z-index: 100;
 
     display: flex;
     align-items: center;
     justify-content: center;
-    
-    flex-shrink: 0; 
-    
+
+    flex-shrink: 0;
+
     transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
 .whats-app img {
     width: 32px;
     height: 32px;
-    display: block; 
+    display: block;
     margin: 0;
 }
 
 .whats-app:hover {
-    background-color: #20ba5a; 
-    transform: scale(1.1) translateY(-3px); /* Se expande un 10% y se eleva un poco */
+    background-color: #20ba5a;
+    transform: scale(1.1) translateY(-3px);
+    /* Se expande un 10% y se eleva un poco */
     box-shadow: 0 6px 16px rgba(37, 211, 102, 0.4);
 }
 
 .my-float {
     margin-top: 10px;
+}
+
+/* ------------------- BARRA LATERAL REDES SOCIALES --------------------- */
+
+.social-sidebar {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+}
+
+.social-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    text-decoration: none;
+    color: #ffffff;
+    width: 50px;
+    height: 50px;
+    border-radius: 6px 0 0 6px;
+    overflow: hidden;
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s ease;
+    box-shadow: -2px 4px 10px rgba(0, 0, 0, 0.15);
+    z-index: 1;
+}
+
+.social-item:hover {
+    width: 150px;
+    z-index: 2;
+}
+
+.social-icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+}
+
+.social-icon img,
+.social-icon i {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    object-fit: contain;
+    margin: 0;
+}
+
+/* Texto interno */
+.social-text {
+    position: absolute;
+    right: 50px;
+    top: 0;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    padding-right: 15px;
+    font-family: sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+    pointer-events: none;
+}
+
+/* Efecto Hover: Únicamente el elemento seleccionado se expande a 150px */
+.social-item:hover .social-text {
+    opacity: 1;
+}
+
+/* Colores institucionales de cada red social */
+.social-whatsapp {
+    background-color: #25d366;
+}
+
+.social-facebook {
+    background-color: #1877f2;
+}
+
+.social-instagram {
+    background-color: #e4405f;
+}
+
+.social-twitter {
+    background-color: #000000;
+}
+
+.social-whatsapp:hover {
+    background-color: #20ba5a;
+}
+
+.social-facebook:hover {
+    background-color: #166fe5;
+}
+
+.social-instagram:hover {
+    background-color: #d63351;
+}
+
+.social-twitter:hover {
+    background-color: #222222;
+}
+
+/* ------------------- RESPONSIVE: PANTALLAS PEQUEÑAS --------------------- */
+@media (max-width: 992px) {
+    .social-sidebar {
+        top: auto;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        transform: none;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 0;
+        width: 100%;
+        background-color: #ffffff;
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .social-item {
+        flex: 1;
+        width: auto;
+        height: 50px;
+        border-radius: 0;
+        justify-content: center;
+        box-shadow: none;
+    }
+
+    .social-icon {
+        position: static;
+        width: auto;
+        height: auto;
+    }
+
+    /* En móvil no expandimos ni mostramos texto, solo iconos */
+    .social-item:hover {
+        width: auto;
+    }
+
+    .social-text {
+        display: none;
+    }
+
+    .whats-app {
+        bottom: 65px;
+        right: 15px;
+    }
+}
+
+
+/* En dispositivos táctiles (sin hover real) evitamos la expansión */
+@media (hover: none) {
+    .social-item:hover {
+        width: 40px;
+        /* no se expande al tocar */
+    }
+
+    .social-text {
+        display: none;
+        /* el texto no aporta si no hay hover real */
+    }
 }
 
 /* ------------------- rejilla top --------------------- */
