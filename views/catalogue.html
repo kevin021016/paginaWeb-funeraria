@@ -52,11 +52,11 @@
         <!-- MENÚ DESPLEGABLE PARA MÓVIL -->
         <div class="collapse d-lg-none bg-white border-bottom border-light" id="mobileMenu">
             <div class="d-flex flex-column gap-3 py-3" style="padding-left: 1.25rem;">
-                <a href="/index.html" class="topbar-menu-item text-black py-1">Inicio</a>
-                <a class="topbar-menu-item text-black py-1">Carrozas</a>
-                <a href="/views/catalogue.html" class="topbar-menu-item text-black py-1">Catálogo</a>
-                <a class="topbar-menu-item text-black py-1">Pólizas</a>
-                <a class="topbar-menu-item text-black py-1">Instalaciones</a>
+                <div class="topbar-menu-item text-black py-1">Inicio</div>
+                <div class="topbar-menu-item text-black py-1">Carrozas</div>
+                <div class="topbar-menu-item text-black py-1">Catálogo</div>
+                <div class="topbar-menu-item text-black py-1">Pólizas</div>
+                <div class="topbar-menu-item text-black py-1">Instalaciones</div>
             </div>
         </div>
     </nav>
@@ -83,6 +83,32 @@
 
     </section>
 
+    <!-- SECCIÓN DE PRODUCTOS Y FILTROS -->
+    <section class="catalog-products-section">
+
+        <!-- Filtros / Pestañas superiores con animación de selección -->
+        <div class="text-center mb-5">
+            <div class="catalog-tabs">
+                <button class="catalog-tab-btn active" id="btn-ataudes"
+                    onclick="switchCategory('ataudes')">Ataúdes</button>
+                <button class="catalog-tab-btn" id="btn-urnas" onclick="switchCategory('urnas')">Urnas</button>
+                <button class="catalog-tab-btn" id="btn-relicarios"
+                    onclick="switchCategory('relicarios')">Relicarios</button>
+            </div>
+        </div>
+
+        <!-- Título de la categoría activa -->
+        <div class="mb-4">
+            <h6 class="text-uppercase fw-bold mb-1" style="color: #c29b14; letter-spacing: 1.5px; font-size: 0.85rem;">
+                Categoría</h6>
+            <h2 class="fw-bold fst-italic text-dark mb-0" id="categoryTitle">Modelos de Ataúdes disponibles</h2>
+        </div>
+
+        <!-- Rejilla de Productos (Aquí se inyectan los elementos mediante JS o bucle) -->
+        <div class="row g-4 justify-content-center catalog-grid-animation" id="productGrid">
+        </div>
+
+    </section>
     <!-- FOOTER -->
     <footer class="footer-section text-white">
 
@@ -205,6 +231,174 @@
             // Allow numbers only and limit to 15 digits
             this.value = this.value.replace(/\D/g, '').slice(0, 15);
         });
+    </script>
+    <!-- SCRIPT DE FILTRADO Y DATOS -->
+    <script>
+        // Base de datos de productos (Simulando el arreglo)
+        const catalogData = {
+            ataudes: [{
+                    tag: "Premium caoba",
+                    title: "Ataúd de madera caoba",
+                    desc: "Diseño sobrio y elegante con acabado de alta calidad para un homenaje digno.",
+                    price: "$18,500.00",
+                    img: "/assets/img/placeholder.jpeg"
+                },
+                {
+                    tag: "Elegancia clásica",
+                    title: "Ataúd metálico reforzado",
+                    desc: "Acabado metálico en tono oscuro con herrajes dorados tradicionales.",
+                    price: "$22,000.00",
+                    img: "/assets/img/placeholder.jpeg"
+                },
+                {
+                    tag: "Elegancia clásica",
+                    title: "Ataúd metálico reforzado",
+                    desc: "Acabado metálico en tono oscuro con herrajes dorados tradicionales.",
+                    price: "$22,000.00",
+                    img: "/assets/img/placeholder.jpeg"
+                },
+                {
+                    tag: "Premium caoba",
+                    title: "Ataúd de madera caoba",
+                    desc: "Diseño sobrio y elegante con acabado de alta calidad para un homenaje digno.",
+                    price: "$18,500.00",
+                    img: "/assets/img/placeholder.jpeg"
+                },
+                {
+                    tag: "Elegancia clásica",
+                    title: "Ataúd metálico reforzado",
+                    desc: "Acabado metálico en tono oscuro con herrajes dorados tradicionales.",
+                    price: "$22,000.00",
+                    img: "/assets/img/placeholder.jpeg"
+                },
+                {
+                    tag: "Elegancia clásica",
+                    title: "Ataúd metálico reforzado",
+                    desc: "Acabado metálico en tono oscuro con herrajes dorados tradicionales.",
+                    price: "$22,000.00",
+                    img: "/assets/img/placeholder.jpeg"
+                }
+            ],
+            urnas: [{
+                    tag: "Premium caoba",
+                    title: "Urna de madera caoba",
+                    desc: "Diseño sobrio y elegante con acabado de alta calidad para preservar el recuerdo.",
+                    price: "$2,500.00",
+                    img: "/assets/img/placeholder.jpeg"
+                },
+                {
+                    tag: "Colección latón",
+                    title: "Urna de latón negro y dorado",
+                    desc: "Acabado metálico con detalles grabados artesanales en tono dorado.",
+                    price: "$8,500.00",
+                    img: "/assets/img/placeholder.jpeg"
+                },
+                {
+                    tag: "Premium caoba",
+                    title: "Urna de madera caoba",
+                    desc: "Diseño sobrio y elegante con acabado de alta calidad para preservar el recuerdo.",
+                    price: "$2,500.00",
+                    img: "/assets/img/placeholder.jpeg"
+                },
+                {
+                    tag: "Colección latón",
+                    title: "Urna de latón negro y dorado",
+                    desc: "Acabado metálico con detalles grabados artesanales en tono dorado.",
+                    price: "$8,500.00",
+                    img: "/assets/img/placeholder.jpeg"
+                },
+                {
+                    tag: "Premium caoba",
+                    title: "Urna de madera caoba",
+                    desc: "Diseño sobrio y elegante con acabado de alta calidad para preservar el recuerdo.",
+                    price: "$2,500.00",
+                    img: "/assets/img/placeholder.jpeg"
+                },
+                {
+                    tag: "Colección latón",
+                    title: "Urna de latón negro y dorado",
+                    desc: "Acabado metálico con detalles grabados artesanales en tono dorado.",
+                    price: "$8,500.00",
+                    img: "/assets/img/placeholder.jpeg"
+                }
+            ],
+            relicarios: [{
+                    tag: "Personal",
+                    title: "Relicario en forma de corazón",
+                    desc: "Diseño discreto y personal para llevar siempre cerca el recuerdo.",
+                    price: "$1,800.00",
+                    img: "/assets/img/placeholder.jpeg"
+                },
+                {
+                    tag: "Acero inoxidable",
+                    title: "Relicario cilíndrico grabado",
+                    desc: "Pequeño cilindro de alta durabilidad con espacio para dedicatoria.",
+                    price: "$1,500.00",
+                    img: "/assets/img/placeholder.jpeg"
+                },
+                {
+                    tag: "Acero inoxidable",
+                    title: "Relicario cilíndrico grabado",
+                    desc: "Pequeño cilindro de alta durabilidad con espacio para dedicatoria.",
+                    price: "$1,500.00",
+                    img: "/assets/img/placeholder.jpeg"
+                }
+            ]
+        };
+
+        function switchCategory(category) {
+            // 1. Cambiar estado activo de los botones en el selector
+            document.querySelectorAll('.catalog-tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(`btn-${category}`).classList.add('active');
+
+            // 2. Actualizar el título según la categoría
+            const titles = {
+                ataudes: "Modelos de Ataúdes disponibles",
+                urnas: "Modelos de Urnas disponibles",
+                relicarios: "Modelos de Relicarios disponibles"
+            };
+            document.getElementById('categoryTitle').textContent = titles[category];
+
+            // 3. Obtener el contenedor y vaciarlo aplicando la animación
+            const grid = document.getElementById('productGrid');
+            grid.classList.remove('catalog-grid-animation');
+
+            // Forzar un "reflow" para reiniciar la animación CSS
+            void grid.offsetWidth;
+            grid.classList.add('catalog-grid-animation');
+
+            // 4. Renderizar los elementos usando un bucle (equivalente al for)
+            let htmlContent = '';
+            catalogData[category].forEach(product => {
+                htmlContent += `
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="product-card-modern">
+                        <div class="product-img-wrapper">
+                            <img src="${product.img}" alt="${product.title}" class="product-img-modern">
+                        </div>
+                        <div class="product-content">
+                            <div>
+                                <span class="text-uppercase text-muted fw-semibold" style="font-size: 0.75rem; letter-spacing: 1px;">${product.tag}</span>
+                                <h4 class="fw-bold text-dark fs-5 mt-1 mb-2">${product.title}</h4>
+                                <p class="text-muted small mb-4" style="line-height: 1.5;">${product.desc}</p>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-between pt-3 border-top">
+                                <span class="product-price">${product.price}</span>
+                                <a href="#" class="btn btn-sm text-white px-3" style="background-color: #1F2E33; border-radius: 4px;">Ver detalles</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            });
+
+            grid.innerHTML = htmlContent;
+        }
+
+        // Cargar por defecto la categoría de ataudes al iniciar la página
+        window.onload = function () {
+            switchCategory('ataudes');
+        };
     </script>
 
     <script>
