@@ -363,7 +363,6 @@ body {
         height: auto;
     }
 
-    /* En móvil no expandimos ni mostramos texto, solo iconos */
     .social-item:hover {
         width: auto;
     }
@@ -376,19 +375,21 @@ body {
         bottom: 65px;
         right: 15px;
     }
-}
 
+       no tape el footer */
+    body {
+        padding-bottom: 50px;
+    }
+}
 
 /* En dispositivos táctiles (sin hover real) evitamos la expansión */
 @media (hover: none) {
     .social-item:hover {
         width: 40px;
-        /* no se expande al tocar */
     }
 
     .social-text {
         display: none;
-        /* el texto no aporta si no hay hover real */
     }
 }
 
