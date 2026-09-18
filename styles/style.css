@@ -130,6 +130,8 @@ body {
     position: relative;
     padding-bottom: 3px;
     display: inline-block;
+    text-decoration: none;
+    color: inherit;
 }
 
 .topbar-item:hover {
