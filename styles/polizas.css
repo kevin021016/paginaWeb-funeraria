@@ -1,0 +1,16 @@
+/* ------------------- HERO SECCIÓN CATÁLOGO --------------------- */
+
+.poliza-hero {
+    background-color: #1F2E33; /* Fondo oscuro institucional */
+    padding-inline: 6rem;
+    padding-block: 5rem;
+    color: #ffffff;
+}
+
+/* RESPONSIVO PARA CELULARES Y TABLETS */
+@media (max-width: 991.98px) {
+    .catalog-hero {
+        padding-inline: 1.25rem;
+        padding-block: 3rem;
+    }
+}
