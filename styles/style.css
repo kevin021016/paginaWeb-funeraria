@@ -380,7 +380,6 @@ body {
         right: 15px;
     }
 
-       no tape el footer */
     body {
         padding-bottom: 50px;
     }
@@ -538,8 +537,8 @@ body {
 
 .services-section {
     background-color: #F6F3ED;
-    padding-inline: 6rem;
-    padding-block: 1rem;
+     padding-inline: 6rem;
+    padding-block: 4rem;
 }
 
 .service-card {
