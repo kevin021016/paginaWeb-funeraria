@@ -60,12 +60,12 @@
             </div>
         </div>
     </nav>
-    <section class="poliza-hero text-center">
-
+    <!-- HERO DE LA VISTA PÓLIZAS -->
+    <section class="polizas-hero text-center">
         <div class="mx-auto" style="max-width: 48rem;">
             <!-- Subtítulo superior -->
             <h6 class="text-uppercase fw-bold mb-3" style="color: #c29b14; letter-spacing: 1.5px; font-size: 0.85rem;">
-                PÓLIZAS DE SEGURO
+                Pólizas de previsión
             </h6>
 
             <!-- Título principal -->
@@ -73,15 +73,32 @@
                 Protege a tu familia con anticipación
             </h1>
 
-            <!-- Descripción -->
+            <!-- Descripción adaptada a pólizas -->
             <p class="text-white-50 mb-0" style="font-size: 1rem; line-height: 1.6;">
-                Contamos con distintos estilos y acabados, pensados para adaptarse al presupuesto y las preferencias de
-                cada familia.
+                Nuestros planes de previsión están diseñados para brindar tranquilidad y estabilidad económica ante
+                cualquier momento inesperado.
             </p>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE PÓLIZAS DINÁMICAS -->
+    <section class="polizas-content-section">
+
+        <!-- Pestañas superiores (Selector) -->
+        <div class="text-center mb-5">
+            <div class="catalog-tabs">
+                <button class="catalog-tab-btn active" id="btn-individual"
+                    onclick="switchPoliza('individual')">Individual</button>
+                <button class="catalog-tab-btn" id="btn-familiar" onclick="switchPoliza('familiar')">Familiar</button>
+            </div>
+        </div>
+
+        <!-- Contenedor dinámico principal (Grid de 2 columnas: Izquierda tarjeta oscura, Derecha beneficios) -->
+        <div class="row g-5 align-items-stretch polizas-grid-animation" id="polizaContainer">
+            <!-- El contenido se inyectará dinámicamente mediante JavaScript -->
         </div>
 
     </section>
-
 
     <!-- FOOTER -->
     <footer class="footer-section text-white">
@@ -196,6 +213,126 @@
                 observer.observe(el);
             });
         })();
+    </script>
+    <!-- SCRIPT DE DATOS Y CAMBIO DINÁMICO -->
+    <script>
+        // Base de datos de pólizas
+        const polizasData = {
+            individual: {
+                title: "PLAN INDIVIDUAL",
+                description: "Pensada para una sola persona. Es transferible: puedes usarla tú mismo o cederla a quien tú decidas en el futuro.",
+                buttonText: "Solicitar información",
+                buttonLink: "#contacto",
+                benefits: [{
+                        title: "Cobertura vitalicia",
+                        desc: "La póliza queda activa a partir de las 24 horas de tu inscripción y se mantiene mientras esté vigente tu convenio."
+                    },
+                    {
+                        title: "Transferible",
+                        desc: "Puedes ceder tu póliza a un familiar o a la persona que tú elijas."
+                    },
+                    {
+                        title: "Servicio completo",
+                        desc: "Capilla, traslado en carroza, y trámites básicos quedan cubiertos según el plan que elijas."
+                    },
+                    {
+                        title: "Sin límite de edad",
+                        desc: "Puedes adquirir el servicio siempre y cuando cumplas con la mayoría de edad."
+                    }
+                ]
+            },
+            familiar: {
+                title: "PLAN FAMILIAR",
+                description: "Protección personal y familiar integral para salvaguardar el bienestar de tus seres queridos.",
+                buttonText: "Solicitar información",
+                buttonLink: "#contacto",
+                benefits: [{
+                        title: "Protege a varios integrantes",
+                        desc: "Incluye a los miembros de tu familia que definas al momento de contratar, bajo una sola póliza."
+                    },
+                    {
+                        title: "Aportación mensual accesible",
+                        desc: "El monto está pensado con el fin de no afectar tu economía de golpe."
+                    },
+                    {
+                        title: "Utilizable a partir del año siguiente",
+                        desc: "Capilla, traslado en carroza, y trámites básicos quedan cubiertos según el plan que elijas."
+                    }
+                ]
+            }
+        };
+
+        function switchPoliza(tipo) {
+            // 1. Cambiar estado activo de los botones del selector
+            document.querySelectorAll('.catalog-tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(`btn-${tipo}`).classList.add('active');
+
+            // 2. Obtener los datos correspondientes al tipo seleccionado
+            const data = polizasData[tipo];
+            const container = document.getElementById('polizaContainer');
+
+            // 3. Aplicar animación de desvanecimiento
+            container.classList.remove('polizas-grid-animation');
+            void container.offsetWidth; // Forzar reflow para reiniciar animación
+            container.classList.add('polizas-grid-animation');
+
+            // 4. Generar el HTML de los beneficios usando un bucle
+            let benefitsHtml = '';
+            data.benefits.forEach(benefit => {
+                benefitsHtml += `
+                    <div class="poliza-benefit-item">
+                        <div class="benefit-icon-circle">
+                            <img src="/assets/img/check-icon.svg" class="my-float" alt="check">
+                        </div>
+                        <div>
+                            <h5 class="fw-bold text-dark fs-5 mb-1">${benefit.title}</h5>
+                            <p class="text-muted small mb-0" style="line-height: 1.6;">${benefit.desc}</p>
+                        </div>
+                    </div>
+                `;
+            });
+
+            // 5. Inyectar la estructura completa de las dos columnas
+            container.innerHTML = `
+                <!-- Columna Izquierda: Tarjeta resumen oscura -->
+                <div class="col-12 col-lg-5">
+                    <div class="poliza-summary-card">
+                        <div>
+                            <h6 class="text-uppercase fw-bold mb-3" style="color: #c29b14; letter-spacing: 1.5px; font-size: 0.85rem;">${data.title}</h6>
+                            <p class="text-white-50 mb-4" style="line-height: 1.7; font-size: 1rem;">
+                                ${data.description}
+                            </p>
+                        </div>
+                        <div>
+                            <a href="${data.buttonLink}" class="btn btn-poliza-action w-100 py-3">${data.buttonText}</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Lista dinámica de beneficios -->
+                <div class="col-12 col-lg-7">
+                    <div class="bg-white p-4 p-md-5 rounded-3 border border-light shadow-sm d-flex flex-column gap-4">
+                        ${benefitsHtml}
+                    </div>
+                </div>
+            `;
+        }
+
+        // Cargar por defecto la póliza individual al iniciar y revelar la página sin parpadeos
+        document.addEventListener("DOMContentLoaded", function () {
+            switchPoliza('individual');
+            document.body.classList.add('loaded');
+        });
+    </script>
+     <script>
+        // Mostrar la página suavemente una vez que todo esté renderizado
+        document.addEventListener("DOMContentLoaded", function () {
+            // Aseguramos que cargue los productos primero
+            switchPoliza('individual');
+
+            // Revelamos el body sin parpadeos
+            document.body.classList.add('loaded');
+        });
     </script>
 </body>
 
