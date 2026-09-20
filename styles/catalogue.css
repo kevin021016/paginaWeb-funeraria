@@ -136,3 +136,13 @@
         transform: translateY(0);
     }
 }
+
+body {
+    opacity: 0;
+    transition: opacity 0.25s ease-in-out;
+}
+
+/* Clase que se activará cuando todo esté listo */
+body.loaded {
+    opacity: 1;
+}

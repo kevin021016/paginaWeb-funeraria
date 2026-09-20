@@ -404,6 +404,16 @@
     <script>
         document.getElementById("year").innerHTML = new Date().getFullYear();
     </script>
+    <script>
+        // Mostrar la página suavemente una vez que todo esté renderizado
+        document.addEventListener("DOMContentLoaded", function () {
+            // Aseguramos que cargue los productos primero
+            switchCategory('ataudes');
+
+            // Revelamos el body sin parpadeos
+            document.body.classList.add('loaded');
+        });
+    </script>
 </body>
 
 </html>
