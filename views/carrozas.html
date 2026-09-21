@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrozas</title>
+    <link rel="icon" type="image/x-icon" href="/assets/img/favicon.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="/styles/catalogue.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+    <nav class="topbar-container">
+        <!-- Barra principal superior -->
+        <div class="topbar">
+            <!-- Logo y subtítulo a la izquierda -->
+            <div class="topbar-logo d-flex flex-column">
+                <a href="/index.html" class="text-black text-decoration-none">
+                    <span class="fw-bold fst-italic fs-6 fs-lg-5">Funeraria</span>
+                </a>
+                <small class="text-muted" style="font-size: 0.75rem;">La Paz, B.C.S</small>
+            </div>
+
+            <!-- OPCIONES PARA COMPUTADORA -->
+            <div class="topbar-options d-none d-lg-flex align-items-center gap-5">
+                <a href="/index.html" class="topbar-item">INICIO</a>
+                <a href="carrozas.html" class="topbar-item active">CARROZAS</a>
+                <a href="/views/catalogue.html" class="topbar-item">CATÁLOGO</a>
+                <a href="polizas.html" class="topbar-item">PÓLIZAS</a>
+                <a href="instalaciones.html" class="topbar-item">INSTALACIONES</a>
+            </div>
+            <!-- SECCIÓN PARA MÓVIL / TABLET -->
+            <div class="d-flex d-lg-none align-items-center gap-3">
+                <!-- Botón hamburguesa conectado al menú desplegable -->
+                <button class="btn text-black p-1 border-0" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#mobileMenu" aria-controls="mobileMenu" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor"
+                        class="bi bi-list" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- MENÚ DESPLEGABLE PARA MÓVIL -->
+        <div class="collapse d-lg-none bg-white border-bottom border-light" id="mobileMenu">
+            <div class="d-flex flex-column gap-3 py-3" style="padding-left: 1.25rem;">
+                <a href="/index.html" class="topbar-menu-item text-black py-1">Inicio</a>
+                <a href="carrozas.html" class="topbar-menu-item text-black py-1">Carrozas</a>
+                <a href="/views/catalogue.html" class="topbar-menu-item text-black py-1">Catálogo</a>
+                <a href="/views/polizas.html" class="topbar-menu-item text-black py-1">Pólizas</a>
+                <a href="instalaciones.html" class="topbar-menu-item text-black py-1">Instalaciones</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO DE LA VISTA CARROZAS -->
+    <section class="catalog-hero text-center">
+        <div class="mx-auto" style="max-width: 48rem;">
+            <!-- Subtítulo superior -->
+            <h6 class="text-uppercase fw-bold mb-3" style="color: #c29b14; letter-spacing: 1.5px; font-size: 0.85rem;">
+                Parque vehicular
+            </h6>
+
+            <!-- Título principal -->
+            <h1 class="fw-bold mb-3" style="font-size: clamp(2rem, 3.5vw, 3rem); line-height: 1.2;">
+                Carrozas y unidades de traslado equipadas
+            </h1>
+
+            <!-- Descripción -->
+            <p class="text-white-50 mb-0" style="font-size: 1rem; line-height: 1.6;">
+                Unidades modernas y sobrias diseñadas para garantizar traslados seguros, solemnes y puntuales en todo momento.
+            </p>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE PRODUCTOS Y FILTROS -->
+    <section class="catalog-products-section">
+
+        <!-- Filtros / Pestañas superiores con animación de selección -->
+        <div class="text-center mb-5">
+            <div class="catalog-tabs">
+                <button class="catalog-tab-btn active" id="btn-modernas"
+                    onclick="switchCategory('modernas')">Modernas</button>
+                <button class="catalog-tab-btn" id="btn-clasicas" onclick="switchCategory('clasicas')">Clásicas</button>
+                <button class="catalog-tab-btn" id="btn-traslados"
+                    onclick="switchCategory('traslados')">Vehículos de traslado</button>
+            </div>
+        </div>
+
+        <!-- Título de la categoría -->
+        <div class="mb-4">
+            <h6 class="text-uppercase fw-bold mb-1" style="color: #c29b14; letter-spacing: 1.5px; font-size: 0.85rem;">
+                Categoría</h6>
+            <h2 class="fw-bold fst-italic text-dark mb-0" id="categoryTitle">Modelos de Carrozas Modernas</h2>
+        </div>
+
+        <!-- Rejilla de Productos (Sin precios, inyectada mediante JS) -->
+        <div class="row g-4 justify-content-center catalog-grid-animation" id="productGrid">
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer-section text-white">
+        <!-- Contenido principal del footer (3 columnas) -->
+        <div class="row g-4 justify-content-between mb-5">
+            <!-- Columna 1: Información de la empresa -->
+            <div class="col-12 col-lg-5">
+                <h5 class="fw-bold mb-3 text-white">Funeraria</h5>
+                <p class="text-white-50 small mb-0" style="line-height: 1.6; max-width: 28rem; text-align: justify;">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean bibendum lorem nunc, sed sodales dui
+                    venenatis sed. In lacinia eros at porttitor pellentesque.
+                </p>
+            </div>
+
+            <!-- Columna 2: Navegación -->
+            <div class="col-6 col-lg-3">
+                <h6 class="text-uppercase fw-bold mb-3 small" style="color: #c29b14; letter-spacing: 1px;">Navegación</h6>
+                <ul class="list-unstyled d-flex flex-column gap-2 mb-0">
+                    <li><a href="/index.html" class="footer-link">Inicio</a></li>
+                    <li><a href="/views/catalogue.html" class="footer-link">Catálogo</a></li>
+                    <li><a href="polizas.html" class="footer-link">Pólizas</a></li>
+                    <li><a href="instalaciones.html" class="footer-link">Instalaciones</a></li>
+                </ul>
+            </div>
+
+            <!-- Columna 3: Contacto -->
+            <div class="col-6 col-lg-3">
+                <h6 class="text-uppercase fw-bold mb-3 small" style="color: #c29b14; letter-spacing: 1px;">Contacto</h6>
+                <ul class="list-unstyled d-flex flex-column gap-2 mb-0">
+                    <li><a href="tel:6121961598" class="footer-link">000-000-0000</a></li>
+                    <li><a href="#" class="footer-link">Whatsapp</a></li>
+                    <li><a href="#" class="footer-link">Cómo llegar</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Línea divisoria inferior -->
+        <hr class="border-secondary opacity-25 mb-4">
+
+        <!-- Derechos de autor -->
+        <div class="text-center text-white-50 small">
+            &copy; 2026 Empresa funeraria. Todos los derechos reservados.
+        </div>
+    </footer>
+
+    <a class="whats-app" href="#" target="_blank">
+        <img src="/assets/img/whatsapp-icon.svg" class="my-float" alt="WhatsApp" width="30" height="30">
+    </a>
+
+    <!-- BARRA LATERAL SOCIAL FLOTANTE -->
+    <div class="social-sidebar">
+        <a href="https://facebook.com" target="_blank" class="social-item social-facebook" aria-label="Facebook">
+            <span class="social-text">Facebook</span>
+            <div class="social-icon">
+                <img src="/assets/img/facebook-icon.svg" class="my-float" alt="Facebook">
+            </div>
+        </a>
+        <a href="https://instagram.com" target="_blank" class="social-item social-instagram" aria-label="Instagram">
+            <span class="social-text">Instagram</span>
+            <div class="social-icon">
+                <img src="/assets/img/instagram-icon.svg" class="my-float" alt="instagram">
+            </div>
+        </a>
+        <a href="https://twitter.com" target="_blank" class="social-item social-twitter" aria-label="X (Twitter)">
+            <span class="social-text">Síguenos</span>
+            <div class="social-icon">
+                <img src="/assets/img/twitter-icon.svg" class="my-float" alt="Twitter">
+            </div>
+        </a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">
+    </script>
+
+    <!-- SCRIPT DE DATOS Y FILTRADO (SIN PRECIOS) -->
+    <script>
+        const catalogData = {
+            modernas: [
+                {
+                    tag: "Última generación",
+                    title: "Carroza fúnebre de lujo lincoln",
+                    desc: "Diseño aerodinámico y elegante en tonos oscuros con acabados interiores de alta gama.",
+                    img: "/assets/img/placeholder.jpeg"
+                },
+                {
+                    tag: "Ejecutiva",
+                    title: "Carroza tipo limusina adaptada",
+                    desc: "Amplio espacio interior con iluminación sutil y plataforma hidráulica de traslado.",
+                    img: "/assets/img/placeholder.jpeg"
+                }
+            ],
+            clasicas: [
+                {
+                    tag: "Tradicional",
+                    title: "Carroza fúnebre clásica americana",
+                    desc: "Líneas tradicionales y sobrias que evocan respeto y solemnidad en cada cortejo.",
+                    img: "/assets/img/placeholder.jpeg"
+                }
+            ],
+            traslados: [
+                {
+                    tag: "Logística",
+                    title: "Vehículo de traslado y carroza auxiliar",
+                    desc: "Unidades destinadas al traslado de arreglos florales y traslado logístico para el cortejo.",
+                    img: "/assets/img/placeholder.jpeg"
+                }
+            ]
+        };
+
+        function switchCategory(category) {
+            // 1. Cambiar estado activo de los botones
+            document.querySelectorAll('.catalog-tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(`btn-${category}`).classList.add('active');
+
+            // 2. Actualizar el título según la categoría
+            const titles = {
+                modernas: "Modelos de Carrozas Modernas",
+                clasicas: "Modelos de Carrozas Clásicas",
+                traslados: "Vehículos de Apoyo y Logística"
+            };
+            document.getElementById('categoryTitle').textContent = titles[category];
+
+            // 3. Aplicar animación de desvanecimiento
+            const grid = document.getElementById('productGrid');
+            grid.classList.remove('catalog-grid-animation');
+            void grid.offsetWidth;
+            grid.classList.add('catalog-grid-animation');
+
+            // 4. Renderizar tarjetas (SIN PRECIOS)
+            let htmlContent = '';
+            catalogData[category].forEach(product => {
+                htmlContent += `
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="product-card-modern">
+                            <div class="product-img-wrapper">
+                                <img src="${product.img}" alt="${product.title}" class="product-img-modern">
+                            </div>
+                            <div class="product-content">
+                                <div>
+                                    <span class="text-uppercase text-muted fw-semibold" style="font-size: 0.75rem; letter-spacing: 1px;">${product.tag}</span>
+                                    <h4 class="fw-bold text-dark fs-5 mt-1 mb-2">${product.title}</h4>
+                                    <p class="text-muted small mb-4" style="line-height: 1.5;">${product.desc}</p>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-end pt-3 border-top">
+                                    <a href="/views/product.html" class="btn btn-sm text-white px-3" style="background-color: #1F2E33; border-radius: 4px;">Ver detalles</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            grid.innerHTML = htmlContent;
+        }
+
+        // Cargar por defecto la categoría 'modernas' sin parpadeos al iniciar
+        document.addEventListener("DOMContentLoaded", function () {
+            switchCategory('modernas');
+            document.body.classList.add('loaded');
+        });
+    </script>
+</body>
+
+</html>
