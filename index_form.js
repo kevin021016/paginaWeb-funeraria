@@ -6,9 +6,9 @@ const btnLoader = document.getElementById('btnLoader');
 
 frmEmail.addEventListener('submit', sendEmail);
 
-const serviceId = '';
-const templateId = '';
-const apiKey = '';
+const serviceId = 'service_agpwavf';
+const templateId = 'template_1vlttpj';
+const apiKey = 'VFUzPQIsz68DRA7za';
 
 function sendEmail(event) {
     event.preventDefault();
