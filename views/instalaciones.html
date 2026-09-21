@@ -76,26 +76,54 @@
 
             <!-- Descripción -->
             <p class="text-white-50 mb-0" style="font-size: 1rem; line-height: 1.6;">
-                Contamos con instalaciones modernas, cómodas y equipadas para brindar un acompañamiento digno en todo momento.
+                Contamos con instalaciones modernas, cómodas y equipadas para brindar un acompañamiento digno en todo
+                momento.
             </p>
         </div>
     </section>
 
-    <!-- SECCIÓN DE INSTALACIONES DINÁMICAS -->
     <section class="instalaciones-content-section">
 
-        <!-- Pestañas superiores (Selector) -->
+        <!-- Pestañas superiores corregidas con los argumentos 'capillas' y 'velatorios' -->
         <div class="text-center mb-5">
             <div class="catalog-tabs">
                 <button class="catalog-tab-btn active" id="btn-capillas"
                     onclick="switchInstalacion('capillas')">Capillas</button>
-                <button class="catalog-tab-btn" id="btn-velatorios" onclick="switchInstalacion('velatorios')">Salas de Velación</button>
+                <button class="catalog-tab-btn" id="btn-velatorios" onclick="switchInstalacion('velatorios')">Salas de
+                    Velación</button>
             </div>
         </div>
 
         <!-- Contenedor dinámico principal -->
         <div class="row g-5 align-items-stretch instalaciones-grid-animation" id="instalacionContainer">
             <!-- El contenido se inyectará dinámicamente mediante JavaScript -->
+        </div>
+
+    </section>
+
+    <!-- SECCIÓN GALERIA INSTALACIONES DINÁMICA -->
+    <section class="instalaciones-section">
+
+        <!-- Encabezado de la sección -->
+        <div class="text-center mb-5">
+            <h6 class="text-uppercase fw-bold mb-3" style="color: #c29b14; letter-spacing: 1.5px;">Instalaciones</h6>
+            <h2 class="fw-bold fs-2 fs-md-1 mb-3 fst-italic text-dark">Galería de instalaciones</h2>
+            <p class="text-muted mx-auto" style="max-width: 38rem; font-size: 0.95rem;">
+                Conoce cada uno de nuestros espacios diseñados cuidadosamente para ofrecer comodidad, sobriedad y un
+                entorno de respeto.
+            </p>
+        </div>
+
+        <!-- Rejilla de galería con el ID 'galleryGrid' para el bucle de las 6 imágenes -->
+        <div class="row g-4 justify-content-center mb-5 instalaciones-grid-animation" id="galleryGrid">
+            <!-- Las 6 imágenes se inyectarán aquí mediante JavaScript -->
+        </div>
+
+        <!-- Botón inferior centrado -->
+        <div class="text-center reveal">
+            <a href="#contacto" class="btn btn-instalaciones-all text-decoration-none shadow-sm">
+                Ver instalaciones completas
+            </a>
         </div>
 
     </section>
@@ -111,7 +139,8 @@
                 </p>
             </div>
             <div class="col-6 col-lg-3">
-                <h6 class="text-uppercase fw-bold mb-3 small" style="color: #c29b14; letter-spacing: 1px;">Navegación</h6>
+                <h6 class="text-uppercase fw-bold mb-3 small" style="color: #c29b14; letter-spacing: 1px;">Navegación
+                </h6>
                 <ul class="list-unstyled d-flex flex-column gap-2 mb-0">
                     <li><a href="/index.html" class="footer-link">Inicio</a></li>
                     <li><a href="/views/catalogue.html" class="footer-link">Catálogo</a></li>
@@ -164,7 +193,7 @@
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">
     </script>
 
-    <!-- SCRIPT DE DATOS Y CAMBIO DINÁMICO PARA INSTALACIONES -->
+    <!-- SCRIPT CORREGIDO PARA INSTALACIONES Y GALERÍA -->
     <script>
         const instalacionesData = {
             capillas: {
@@ -172,8 +201,7 @@
                 description: "Espacios amplios, sobrios y climatizados, diseñados para recibir a familiares y amigos en un ambiente de total respeto y tranquilidad.",
                 buttonText: "Agendar visita",
                 buttonLink: "#contacto",
-                benefits: [
-                    {
+                benefits: [{
                         title: "Ambiente climatizado",
                         desc: "Salas equipadas con aire acondicionado y control de temperatura para mayor comodidad."
                     },
@@ -189,6 +217,31 @@
                         title: "Acompañamiento integral",
                         desc: "Personal disponible en todo momento para coordinar cualquier necesidad logística."
                     }
+                ],
+                images: [{
+                        src: "/assets/img/capilla.jpg",
+                        alt: "Capilla principal"
+                    },
+                    {
+                        src: "/assets/img/capilla.jpg",
+                        alt: "Vista interior de capilla"
+                    },
+                    {
+                        src: "/assets/img/capilla.jpg",
+                        alt: "Área de ceremonia"
+                    },
+                    {
+                        src: "/assets/img/capilla.jpg",
+                        alt: "Detalle floral en capilla"
+                    },
+                    {
+                        src: "/assets/img/capilla.jpg",
+                        alt: "Pasillos y accesos"
+                    },
+                    {
+                        src: "/assets/img/capilla.jpg",
+                        alt: "Capilla iluminada"
+                    }
                 ]
             },
             velatorios: {
@@ -196,8 +249,7 @@
                 description: "Áreas diseñadas específicamente para la intimidad y la reflexión, cuidando cada detalle estético y de confort.",
                 buttonText: "Agendar visita",
                 buttonLink: "#contacto",
-                benefits: [
-                    {
+                benefits: [{
                         title: "Diseño sobrio y elegante",
                         desc: "Acabados en tonos cálidos y mobiliario cómodo que brindan un entorno de paz."
                     },
@@ -209,19 +261,48 @@
                         title: "Servicios complementarios",
                         desc: "Acceso a cafetería y áreas comunes para los asistentes de la familia."
                     }
+                ],
+                images: [{
+                        src: "/assets/img/velatorio.jpg",
+                        alt: "Sala de velación ejecutiva"
+                    },
+                    {
+                        src: "/assets/img/velatorio.jpg",
+                        alt: "Sala de descanso familiar"
+                    },
+                    {
+                        src: "/assets/img/velatorio.jpg",
+                        alt: "Mobiliario y confort"
+                    },
+                    {
+                        src: "/assets/img/velatorio.jpg",
+                        alt: "Área de recepción"
+                    },
+                    {
+                        src: "/assets/img/velatorio.jpg",
+                        alt: "Estancia privada"
+                    },
+                    {
+                        src: "/assets/img/velatorio.jpg",
+                        alt: "Iluminación ambiental"
+                    }
                 ]
             }
         };
 
         function switchInstalacion(tipo) {
+            // Eliminar y agregar la clase active al botón correspondiente
             document.querySelectorAll('.catalog-tab-btn').forEach(btn => btn.classList.remove('active'));
-            document.getElementById(`btn-${tipo}`).classList.add('active');
+            const activeBtn = document.getElementById(`btn-${tipo}`);
+            if (activeBtn) activeBtn.classList.add('active');
 
             const data = instalacionesData[tipo];
-            const container = document.getElementById('instalacionContainer');
+            if (!data) return;
 
+            // 1. Renderizar contenido superior (Beneficios y tarjeta de resumen)
+            const container = document.getElementById('instalacionContainer');
             container.classList.remove('instalaciones-grid-animation');
-            void container.offsetWidth; 
+            void container.offsetWidth;
             container.classList.add('instalaciones-grid-animation');
 
             let benefitsHtml = '';
@@ -243,8 +324,7 @@
                 <div class="col-12 col-lg-5">
                     <div class="instalacion-summary-card">
                         <div>
-                            <h6 class="text-uppercase fw-bold mb-3" style="color: #c29b14; letter-spacing: 1.5px; font-size: 1.1rem;">INSTALACIONES</h6>
-                            <h6 class="text-uppercase fw-bold mb-3" style="color: #fffff; letter-spacing: 1.5px; font-size: 1rem;">${data.title}</h6>
+                            <h6 class="text-uppercase fw-bold mb-3" style="color: #c29b14; letter-spacing: 1.5px; font-size: 0.85rem;">${data.title}</h6>
                             <p class="text-white-50 mb-4" style="line-height: 1.7; font-size: 1rem;">
                                 ${data.description}
                             </p>
@@ -261,8 +341,28 @@
                     </div>
                 </div>
             `;
+
+            // 2. Renderizar dinámicamente las 6 imágenes de la galería
+            const galleryGrid = document.getElementById('galleryGrid');
+            galleryGrid.classList.remove('instalaciones-grid-animation');
+            void galleryGrid.offsetWidth;
+            galleryGrid.classList.add('instalaciones-grid-animation');
+
+            let galleryHtml = '';
+            data.images.forEach(img => {
+                galleryHtml += `
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="instalacion-card h-100">
+                            <img src="${img.src}" alt="${img.alt}" class="instalacion-img">
+                        </div>
+                    </div>
+                `;
+            });
+
+            galleryGrid.innerHTML = galleryHtml;
         }
 
+        // Cargar por defecto la categoría 'capillas' al iniciar la página
         document.addEventListener("DOMContentLoaded", function () {
             switchInstalacion('capillas');
             document.body.classList.add('loaded');
@@ -273,26 +373,6 @@
         document.getElementById("year").innerHTML = new Date().getFullYear();
     </script>
 
-    <!-- Script de acordeón FAQ -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const accordionItems = document.querySelectorAll('.faq-item');
-
-            accordionItems.forEach(item => {
-                const button = item.querySelector('.faq-button');
-                const collapse = item.querySelector('.accordion-collapse');
-                const icon = button.querySelector('.faq-icon');
-
-                collapse.addEventListener('show.bs.collapse', function () {
-                    icon.textContent = "−";
-                });
-
-                collapse.addEventListener('hide.bs.collapse', function () {
-                    icon.textContent = "+";
-                });
-            });
-        });
-    </script>
 </body>
 
 </html>
