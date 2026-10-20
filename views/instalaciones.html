@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instalaciones</title>
+    <link rel="icon" type="image/x-icon" href="/assets/img/favicon.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="/styles/instalaciones.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+    <nav class="topbar-container">
+        <!-- Barra principal superior -->
+        <div class="topbar">
+            <!-- Logo y subtítulo a la izquierda -->
+            <div class="topbar-logo d-flex flex-column">
+                <a href="/index.html" class="text-black text-decoration-none">
+                    <span class="fw-bold fst-italic fs-6 fs-lg-5">Funeraria</span>
+                </a>
+                <small class="text-muted" style="font-size: 0.75rem;">La Paz, B.C.S</small>
+            </div>
+
+            <!-- OPCIONES PARA COMPUTADORA -->
+            <div class="topbar-options d-none d-lg-flex align-items-center gap-5">
+                <a href="/index.html" class="topbar-item">INICIO</a>
+                <a href="carrozas.html" class="topbar-item">CARROZAS</a>
+                <a href="/views/catalogue.html" class="topbar-item">CATÁLOGO</a>
+                <a href="polizas.html" class="topbar-item">PÓLIZAS</a>
+                <a href="instalaciones.html" class="topbar-item active">INSTALACIONES</a>
+            </div>
+            <!-- SECCIÓN PARA MÓVIL / TABLET -->
+            <div class="d-flex d-lg-none align-items-center gap-3">
+                <!-- Botón hamburguesa conectado al menú desplegable -->
+                <button class="btn text-black p-1 border-0" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#mobileMenu" aria-controls="mobileMenu" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor"
+                        class="bi bi-list" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- MENÚ DESPLEGABLE PARA MÓVIL -->
+        <div class="collapse d-lg-none bg-white border-bottom border-light" id="mobileMenu">
+            <div class="d-flex flex-column gap-3 py-3" style="padding-left: 1.25rem;">
+                <a href="/index.html" class="topbar-menu-item text-black py-1">Inicio</a>
+                <a href="/views/carrozas.html" class="topbar-menu-item text-black py-1">Carrozas</a>
+                <a href="/views/catalogue.html" class="topbar-menu-item text-black py-1">Catálogo</a>
+                <a href="/views/polizas.html" class="topbar-menu-item text-black py-1">Pólizas</a>
+                <a href="/views/instalaciones.html" class="topbar-menu-item text-black py-1">Instalaciones</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO DE LA VISTA INSTALACIONES -->
+    <section class="instalaciones-hero text-center">
+        <div class="mx-auto" style="max-width: 48rem;">
+            <!-- Subtítulo superior -->
+            <h6 class="text-uppercase fw-bold mb-3" style="color: #c29b14; letter-spacing: 1.5px; font-size: 0.85rem;">
+                Nuestras instalaciones
+            </h6>
+
+            <!-- Título principal -->
+            <h1 class="fw-bold mb-3" style="font-size: clamp(2rem, 3.5vw, 3rem); line-height: 1.2;">
+                Espacios diseñados para la paz y el respeto
+            </h1>
+
+            <!-- Descripción -->
+            <p class="text-white-50 mb-0" style="font-size: 1rem; line-height: 1.6;">
+                Contamos con instalaciones modernas, cómodas y equipadas para brindar un acompañamiento digno en todo
+                momento.
+            </p>
+        </div>
+    </section>
+
+    <section class="instalaciones-content-section">
+
+        <!-- Pestañas superiores corregidas con los argumentos 'capillas' y 'velatorios' -->
+        <div class="text-center mb-5">
+            <div class="catalog-tabs">
+                <button class="catalog-tab-btn active" id="btn-capillas"
+                    onclick="switchInstalacion('capillas')">Capillas</button>
+                <button class="catalog-tab-btn" id="btn-velatorios" onclick="switchInstalacion('velatorios')">Salas de
+                    Velación</button>
+            </div>
+        </div>
+
+        <!-- Contenedor dinámico principal -->
+        <div class="row g-5 align-items-stretch instalaciones-grid-animation" id="instalacionContainer">
+            <!-- El contenido se inyectará dinámicamente mediante JavaScript -->
+        </div>
+
+    </section>
+
+    <!-- SECCIÓN GALERIA INSTALACIONES DINÁMICA -->
+    <section class="instalaciones-section">
+
+        <!-- Encabezado de la sección -->
+        <div class="text-center mb-5">
+            <h6 class="text-uppercase fw-bold mb-3" style="color: #c29b14; letter-spacing: 1.5px;">Instalaciones</h6>
+            <h2 class="fw-bold fs-2 fs-md-1 mb-3 fst-italic text-dark">Galería de instalaciones</h2>
+            <p class="text-muted mx-auto" style="max-width: 38rem; font-size: 0.95rem;">
+                Conoce cada uno de nuestros espacios diseñados cuidadosamente para ofrecer comodidad, sobriedad y un
+                entorno de respeto.
+            </p>
+        </div>
+
+        <!-- Rejilla de galería con el ID 'galleryGrid' para el bucle de las 6 imágenes -->
+        <div class="row g-4 justify-content-center mb-5 instalaciones-grid-animation" id="galleryGrid">
+            <!-- Las 6 imágenes se inyectarán aquí mediante JavaScript -->
+        </div>
+
+        <!-- Botón inferior centrado -->
+        <div class="text-center reveal">
+            <a href="#contacto" class="btn btn-instalaciones-all text-decoration-none shadow-sm">
+                Ver instalaciones completas
+            </a>
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer-section text-white">
+        <div class="row g-4 justify-content-between mb-5">
+            <div class="col-12 col-lg-5">
+                <h5 class="fw-bold mb-3 text-white">Funeraria</h5>
+                <p class="text-white-50 small mb-0" style="line-height: 1.6; max-width: 28rem; text-align: justify;">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean bibendum lorem nunc, sed sodales dui
+                    venenatis sed. In lacinia eros at porttitor pellentesque.
+                </p>
+            </div>
+            <div class="col-6 col-lg-3">
+                <h6 class="text-uppercase fw-bold mb-3 small" style="color: #c29b14; letter-spacing: 1px;">Navegación
+                </h6>
+                <ul class="list-unstyled d-flex flex-column gap-2 mb-0">
+                    <li><a href="/index.html" class="footer-link">Inicio</a></li>
+                    <li><a href="/views/catalogue.html" class="footer-link">Catálogo</a></li>
+                    <li><a href="polizas.html" class="footer-link">Pólizas</a></li>
+                    <li><a href="instalaciones.html" class="footer-link">Instalaciones</a></li>
+                </ul>
+            </div>
+            <div class="col-6 col-lg-3">
+                <h6 class="text-uppercase fw-bold mb-3 small" style="color: #c29b14; letter-spacing: 1px;">Contacto</h6>
+                <ul class="list-unstyled d-flex flex-column gap-2 mb-0">
+                    <li><a href="tel:6121961598" class="footer-link">000-000-0000</a></li>
+                    <li><a href="#" class="footer-link">Whatsapp</a></li>
+                    <li><a href="#" class="footer-link">Cómo llegar</a></li>
+                </ul>
+            </div>
+        </div>
+        <hr class="border-secondary opacity-25 mb-4">
+        <div class="text-center text-white-50 small">
+            &copy; <span id="year"></span> Empresa funeraria. Todos los derechos reservados.
+        </div>
+    </footer>
+
+    <a class="whats-app" href="#" target="_blank">
+        <img src="/assets/img/whatsapp-icon.svg" class="my-float" alt="WhatsApp" width="30" height="30">
+    </a>
+
+    <!-- BARRA LATERAL SOCIAL FLOTANTE -->
+    <div class="social-sidebar">
+        <a href="https://facebook.com" target="_blank" class="social-item social-facebook" aria-label="Facebook">
+            <span class="social-text">Facebook</span>
+            <div class="social-icon">
+                <img src="/assets/img/facebook-icon.svg" class="my-float" alt="Facebook">
+            </div>
+        </a>
+        <a href="https://instagram.com" target="_blank" class="social-item social-instagram" aria-label="Instagram">
+            <span class="social-text">Instagram</span>
+            <div class="social-icon">
+                <img src="/assets/img/instagram-icon.svg" class="my-float" alt="instagram">
+            </div>
+        </a>
+        <a href="https://twitter.com" target="_blank" class="social-item social-twitter" aria-label="X (Twitter)">
+            <span class="social-text">Síguenos</span>
+            <div class="social-icon">
+                <img src="/assets/img/twitter-icon.svg" class="my-float" alt="Twitter">
+            </div>
+        </a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">
+    </script>
+
+    <!-- SCRIPT CORREGIDO PARA INSTALACIONES Y GALERÍA -->
+    <script>
+        const instalacionesData = {
+            capillas: {
+                title: "CAPILLAS DE VELACIÓN",
+                description: "Espacios amplios, sobrios y climatizados, diseñados para recibir a familiares y amigos en un ambiente de total respeto y tranquilidad.",
+                buttonText: "Agendar visita",
+                buttonLink: "#contacto",
+                benefits: [{
+                        title: "Ambiente climatizado",
+                        desc: "Salas equipadas con aire acondicionado y control de temperatura para mayor comodidad."
+                    },
+                    {
+                        title: "Capacidad adaptable",
+                        desc: "Espacios versátiles que se ajustan tanto a reuniones íntimas como a ceremonias con mayor concurrencia."
+                    },
+                    {
+                        title: "Privacidad y confort",
+                        desc: "Áreas de descanso privadas para los familiares más cercanos durante el proceso."
+                    },
+                    {
+                        title: "Acompañamiento integral",
+                        desc: "Personal disponible en todo momento para coordinar cualquier necesidad logística."
+                    }
+                ],
+                images: [{
+                        src: "/assets/img/capilla.jpg",
+                        alt: "Capilla principal"
+                    },
+                    {
+                        src: "/assets/img/capilla.jpg",
+                        alt: "Vista interior de capilla"
+                    },
+                    {
+                        src: "/assets/img/capilla.jpg",
+                        alt: "Área de ceremonia"
+                    },
+                    {
+                        src: "/assets/img/capilla.jpg",
+                        alt: "Detalle floral en capilla"
+                    },
+                    {
+                        src: "/assets/img/capilla.jpg",
+                        alt: "Pasillos y accesos"
+                    },
+                    {
+                        src: "/assets/img/capilla.jpg",
+                        alt: "Capilla iluminada"
+                    }
+                ]
+            },
+            velatorios: {
+                title: "SALAS DE VELACIÓN",
+                description: "Áreas diseñadas específicamente para la intimidad y la reflexión, cuidando cada detalle estético y de confort.",
+                buttonText: "Agendar visita",
+                buttonLink: "#contacto",
+                benefits: [{
+                        title: "Diseño sobrio y elegante",
+                        desc: "Acabados en tonos cálidos y mobiliario cómodo que brindan un entorno de paz."
+                    },
+                    {
+                        title: "Atención personalizada",
+                        desc: "Un asesor dedicado a coordinar el flujo y la comodidad de los asistentes."
+                    },
+                    {
+                        title: "Servicios complementarios",
+                        desc: "Acceso a cafetería y áreas comunes para los asistentes de la familia."
+                    }
+                ],
+                images: [{
+                        src: "/assets/img/velatorio.jpg",
+                        alt: "Sala de velación ejecutiva"
+                    },
+                    {
+                        src: "/assets/img/velatorio.jpg",
+                        alt: "Sala de descanso familiar"
+                    },
+                    {
+                        src: "/assets/img/velatorio.jpg",
+                        alt: "Mobiliario y confort"
+                    },
+                    {
+                        src: "/assets/img/velatorio.jpg",
+                        alt: "Área de recepción"
+                    },
+                    {
+                        src: "/assets/img/velatorio.jpg",
+                        alt: "Estancia privada"
+                    },
+                    {
+                        src: "/assets/img/velatorio.jpg",
+                        alt: "Iluminación ambiental"
+                    }
+                ]
+            }
+        };
+
+        function switchInstalacion(tipo) {
+            // Eliminar y agregar la clase active al botón correspondiente
+            document.querySelectorAll('.catalog-tab-btn').forEach(btn => btn.classList.remove('active'));
+            const activeBtn = document.getElementById(`btn-${tipo}`);
+            if (activeBtn) activeBtn.classList.add('active');
+
+            const data = instalacionesData[tipo];
+            if (!data) return;
+
+            // 1. Renderizar contenido superior (Beneficios y tarjeta de resumen)
+            const container = document.getElementById('instalacionContainer');
+            container.classList.remove('instalaciones-grid-animation');
+            void container.offsetWidth;
+            container.classList.add('instalaciones-grid-animation');
+
+            let benefitsHtml = '';
+            data.benefits.forEach(benefit => {
+                benefitsHtml += `
+                    <div class="instalacion-benefit-item">
+                        <div class="benefit-icon-circle">
+                            <img src="/assets/img/check-icon.svg" class="my-float" alt="check">
+                        </div>
+                        <div>
+                            <h5 class="fw-bold text-dark fs-5 mb-1">${benefit.title}</h5>
+                            <p class="text-muted small mb-0" style="line-height: 1.6;">${benefit.desc}</p>
+                        </div>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = `
+                <div class="col-12 col-lg-5">
+                    <div class="instalacion-summary-card">
+                        <div>
+                            <h6 class="text-uppercase fw-bold mb-3" style="color: #c29b14; letter-spacing: 1.5px; font-size: 1rem;">INSTALACIONES</h6>
+                            <h6 class="text-uppercase fw-bold mb-3" style="color: #fffff; letter-spacing: 1.5px; font-size: 1rem;">${data.title}</h6>
+                            <p class="text-white-50 mb-4" style="line-height: 1.7; font-size: 1rem;">
+                                ${data.description}
+                            </p>
+                        </div>
+                        <div>
+                            <a href="${data.buttonLink}" class="btn btn-instalacion-action w-100 py-3">${data.buttonText}</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-7">
+                    <div class="bg-white p-4 p-md-5 rounded-3 border border-light shadow-sm d-flex flex-column gap-4">
+                        ${benefitsHtml}
+                    </div>
+                </div>
+            `;
+
+            // 2. Renderizar dinámicamente las 6 imágenes de la galería
+            const galleryGrid = document.getElementById('galleryGrid');
+            galleryGrid.classList.remove('instalaciones-grid-animation');
+            void galleryGrid.offsetWidth;
+            galleryGrid.classList.add('instalaciones-grid-animation');
+
+            let galleryHtml = '';
+            data.images.forEach(img => {
+                galleryHtml += `
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="instalacion-card h-100">
+                            <img src="${img.src}" alt="${img.alt}" class="instalacion-img">
+                        </div>
+                    </div>
+                `;
+            });
+
+            galleryGrid.innerHTML = galleryHtml;
+        }
+
+        // Cargar por defecto la categoría 'capillas' al iniciar la página
+        document.addEventListener("DOMContentLoaded", function () {
+            switchInstalacion('capillas');
+            document.body.classList.add('loaded');
+        });
+    </script>
+
+    <script>
+        document.getElementById("year").innerHTML = new Date().getFullYear();
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,1022 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+:root {
+    --linea: rgba(38, 37, 35, 0.12);
+    background-color: #F6F3ED;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    overflow-x: clip;
+    max-width: 100%;
+    scroll-behavior: smooth;
+}
+
+#sectionServices {
+    scroll-margin-top: 4rem;
+}
+
+#sectionPoliza {
+    scroll-margin-top: 4rem;
+}
+
+#sectionInstalaciones {
+    scroll-margin-top: 4rem;
+}
+
+#sectionCatalogue {
+    scroll-margin-top: 4rem;
+}
+
+#seccionContact {
+    scroll-margin-top: 4rem;
+}
+
+.contacto-form-wrapper {
+    position: relative;
+}
+
+.form-loader {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: inherit;
+}
+
+.form-loader img {
+    width: 60px;
+    height: 60px;
+}
+
+/* ------------------- TOPBAR --------------------- */
+
+.topbar-container {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+/* el menú móvil ya no debe ser hijo "en flujo" del sticky */
+#mobileMenu.collapse.show,
+#mobileMenu.collapsing {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+}
+
+.topbar {
+    width: 100%;
+    min-height: 4rem;
+    background: #ffffff;
+    border-bottom: 1px solid var(--linea);
+    box-shadow: 0 2px 14px rgba(31, 46, 51, 0.06);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: 6rem;
+    /* Margen amplio para desktop */
+}
+
+/* RESPONSIVO PARA CELULARES Y TABLETS */
+@media (max-width: 1057px) {
+    .topbar {
+        padding-inline: 1.25rem;
+        /* Reduce el margen en celular para aprovechar todo el ancho */
+    }
+}
+
+.topbar-options {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.topbar-btn {
+    background-color: #c29b14;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.topbar-btn:hover {
+    background-color: #a6810f;
+}
+
+/* ------------------- TOPBAR ITEMS --------------------- */
+
+.topbar-item {
+    cursor: pointer;
+    font-family: sans-serif;
+    letter-spacing: 1.2px;
+    font-size: 0.78rem;
+    font-weight: 450;
+    position: relative;
+    padding-bottom: 3px;
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+}
+
+.topbar-item:hover {
+    color: #c29b14;
+}
+
+.topbar-item::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: #c29b14;
+    transition: width 0.3s ease-in-out;
+}
+
+.topbar-item:hover::after {
+    width: 100%;
+}
+
+.topbar-item.active::after {
+    width: 100%;
+}
+
+.topbar-item.active {
+    color: #c29b14;
+    font-weight: 600;
+}
+
+.topbar-menu-item {
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    text-decoration: none;
+    color: inherit;
+}
+
+.topbar-menu-item:hover:active {
+    background-color: #d1d1d1;
+    border-radius: 4px;
+}
+
+.topbar-logo img {
+    height: 2.5rem;
+    display: block;
+}
+
+/* ------------------- BOTÓN FIXED WHATSAPP --------------------- */
+
+.whats-app {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    bottom: 40px;
+    right: 15px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50%;
+    box-shadow: 3px 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.whats-app img {
+    width: 32px;
+    height: 32px;
+    display: block;
+    margin: 0;
+}
+
+.whats-app:hover {
+    background-color: #20ba5a;
+    transform: scale(1.1) translateY(-3px);
+    /* Se expande un 10% y se eleva un poco */
+    box-shadow: 0 6px 16px rgba(37, 211, 102, 0.4);
+}
+
+.my-float {
+    margin-top: 10px;
+}
+
+/* ------------------- BARRA LATERAL REDES SOCIALES --------------------- */
+
+.social-sidebar {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+}
+
+.social-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    text-decoration: none;
+    color: #ffffff;
+    width: 50px;
+    height: 50px;
+    border-radius: 6px 0 0 6px;
+    overflow: hidden;
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s ease;
+    box-shadow: -2px 4px 10px rgba(0, 0, 0, 0.15);
+    z-index: 1;
+}
+
+.social-item:hover {
+    width: 150px;
+    z-index: 2;
+}
+
+.social-icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+}
+
+.social-icon img,
+.social-icon i {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    object-fit: contain;
+    margin: 0;
+}
+
+/* Texto interno */
+.social-text {
+    position: absolute;
+    right: 50px;
+    top: 0;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    padding-right: 15px;
+    font-family: sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+    pointer-events: none;
+}
+
+/* Efecto Hover: Únicamente el elemento seleccionado se expande a 150px */
+.social-item:hover .social-text {
+    opacity: 1;
+}
+
+/* Colores institucionales de cada red social */
+.social-whatsapp {
+    background-color: #25d366;
+}
+
+.social-facebook {
+    background-color: #1877f2;
+}
+
+.social-instagram {
+    background-color: #e4405f;
+}
+
+.social-twitter {
+    background-color: #000000;
+}
+
+.social-whatsapp:hover {
+    background-color: #20ba5a;
+}
+
+.social-facebook:hover {
+    background-color: #166fe5;
+}
+
+.social-instagram:hover {
+    background-color: #d63351;
+}
+
+.social-twitter:hover {
+    background-color: #222222;
+}
+
+/* ------------------- RESPONSIVE: PANTALLAS PEQUEÑAS --------------------- */
+@media (max-width: 992px) {
+    .social-sidebar {
+        top: auto;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        transform: none;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 0;
+        width: 100%;
+        background-color: #ffffff;
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .social-item {
+        flex: 1;
+        width: auto;
+        height: 50px;
+        border-radius: 0;
+        justify-content: center;
+        box-shadow: none;
+    }
+
+    .social-icon {
+        position: static;
+        width: auto;
+        height: auto;
+    }
+
+    .social-item:hover {
+        width: auto;
+    }
+
+    .social-text {
+        display: none;
+    }
+
+    .whats-app {
+        bottom: 65px;
+        right: 15px;
+    }
+
+    body {
+        padding-bottom: 50px;
+    }
+}
+
+/* En dispositivos táctiles (sin hover real) evitamos la expansión */
+@media (hover: none) {
+    .social-item:hover {
+        width: 40px;
+    }
+
+    .social-text {
+        display: none;
+    }
+}
+
+/* ------------------- rejilla top --------------------- */
+
+.rejilla-top {
+    width: 100%;
+    min-height: 35rem;
+    /* Fondo oscuro elegante con un leve degradado radial acorde al diseño */
+    background-image:
+        linear-gradient(rgba(18, 26, 29, 0.75), rgba(11, 16, 17, 0.75)),
+        url("/assets/img/fondo.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+}
+
+/* TAMAÑOS POR DEFECTO (Para celulares y pantallas chicas) */
+.rejilla-title {
+    font-size: 1rem;
+    color: #c29b14;
+}
+
+.rejilla-subtitle {
+    font-size: 0.70rem;
+}
+
+/* ------------------- BOTONES DE ACCIÓN (INICIO) --------------------- */
+
+.btn-primary-action {
+    background-color: #c29b14;
+    border: 1px solid #c29b14;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.btn-primary-action:hover {
+    background-color: #aa8610;
+    border-color: #aa8610;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(194, 155, 20, 0.3);
+}
+
+.btn-outline-action {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 4px;
+    font-size: 0.95rem;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-outline-action:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: #ffffff;
+    transform: translateY(-2px);
+    color: #ffffff;
+}
+
+.btn-whatsapp-action {
+    background-color: #1F2E33;
+    border: 1px solid #1F2E33;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    color: #ffffff;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-whatsapp-action:hover {
+    background-color: #2c3f46;
+    border-color: #2c3f46;
+    transform: translateY(-2px);
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(18, 26, 21, 0.3);
+}
+
+/* TAMAÑOS AMPLIOS (Para computadoras a partir de 992px de ancho) */
+@media (min-width: 992px) {
+    .rejilla-title {
+        font-size: 1.5rem;
+    }
+
+    .rejilla-subtitle {
+        font-size: 0.95rem;
+    }
+}
+
+/* ------------------- ACERCA DE NOSOTROS --------------------- */
+
+.about-section {
+    background-color: #EFEADE;
+    padding-inline: 6rem;
+    padding-block: 5rem;
+}
+
+.about-stat-box {
+    background-color: #F6F3ED;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.about-stat-box::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: #c29b14;
+}
+
+.about-stat-box:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+.about-heading {
+    font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+    line-height: 1.3;
+}
+
+.about-stat-number {
+    font-size: clamp(4rem, 6vw, 5.5rem);
+    color: #c29b14;
+    line-height: 1;
+}
+
+/* RESPONSIVO PARA CELULARES Y TABLETS */
+@media (max-width: 1057px) {
+    .about-section {
+        padding-inline: 1.25rem;
+    }
+}
+
+/* ------------------- NUESTROS SERVICIOS --------------------- */
+
+.services-section {
+    background-color: #F6F3ED;
+     padding-inline: 6rem;
+    padding-block: 4rem;
+}
+
+.service-card {
+    background-color: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, border-color 0.3s ease-in-out;
+}
+
+.service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    border-color: #c29b14;
+}
+
+
+/* RESPONSIVO PARA CELULARES Y TABLETS (Igual que la topbar) */
+@media (max-width: 1057px) {
+    .services-section {
+        padding-inline: 1.25rem;
+    }
+}
+
+/* ------------------- SECCIÓN CATÁLOGO --------------------- */
+
+.catalog-section {
+    background-color: #EFEADE;
+    /* Color de fondo solicitado */
+    padding-inline: 6rem;
+    padding-block: 4rem;
+}
+
+.catalog-card {
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 16px;
+    background-color: #ffffff;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.catalog-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    /* Inicia oculta con ancho 0 */
+    height: 4px;
+    background-color: #c29b14;
+    transition: width 0.3s ease-in-out;
+    /* Animación fluida de expansión */
+}
+
+.catalog-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+/* Al hacer hover sobre la tarjeta, la línea dorada crece de izquierda a derecha hasta ocupar el 100% */
+.catalog-card:hover::before {
+    width: 100%;
+}
+
+
+.catalog-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+.catalog-img {
+    width: 100%;
+    height: 22rem;
+    object-fit: cover;
+    object-position: center 30%;
+    /* REVISAR DESPUES */
+}
+
+/* Botón de catálogo completo */
+.btn-catalog-all {
+    background-color: #1F2E33;
+    color: #ffffff;
+    border-radius: 4px;
+    padding: 0.75rem 2rem;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+
+.btn-catalog-all:hover {
+    background-color: #2c3f46;
+    color: #ffffff;
+}
+
+/* RESPONSIVO PARA CELULARES Y TABLETS */
+@media (max-width: 1057px) {
+    .catalog-section {
+        padding-inline: 1.25rem;
+        padding-block: 3rem;
+    }
+}
+
+/* ------------------- SECCIÓN PÓLIZAS DE SEGURO --------------------- */
+
+.poliza-section {
+    background-color: #F6F3ED;
+    padding-inline: 6rem;
+    padding-block: 4rem;
+}
+
+/* ------------------- TARJETAS DE PÓLIZAS --------------------- */
+
+.poliza-card {
+    background-color: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.poliza-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    /* Inicia oculta con ancho 0 */
+    height: 4px;
+    background-color: #c29b14;
+    transition: width 0.3s ease-in-out;
+    /* Animación fluida de expansión */
+}
+
+.poliza-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+/* Al hacer hover sobre la tarjeta, la línea dorada crece de izquierda a derecha hasta ocupar el 100% */
+.poliza-card:hover::before {
+    width: 100%;
+}
+
+/* Bloque inferior del equipo */
+.team-wrapper {
+    background-color: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+    position: relative;
+    overflow: hidden;
+}
+
+.team-wrapper::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: #c29b14;
+}
+
+.team-img {
+    width: 100%;
+    height: auto;
+    max-height: 24rem;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* RESPONSIVO PARA CELULARES Y TABLETS */
+@media (max-width: 1057px) {
+    .poliza-section {
+        padding-inline: 1.25rem;
+        padding-block: 3rem;
+    }
+}
+
+/* ------------------- SECCIÓN CARROZAS --------------------- */
+
+.float-section {
+    background-color: #EFEADE;
+    /* Color de fondo solicitado */
+    padding-inline: 6rem;
+    padding-block: 4rem;
+}
+
+.float-card {
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    background-color: #ffffff;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.float-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    /* Inicia oculta con ancho 0 */
+    height: 4px;
+    background-color: #c29b14;
+    transition: width 0.3s ease-in-out;
+    /* Animación fluida de expansión */
+}
+
+.float-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+/* Al hacer hover sobre la tarjeta, la línea dorada crece de izquierda a derecha hasta ocupar el 100% */
+.float-card:hover::before {
+    width: 100%;
+}
+
+.float-img {
+    width: 100%;
+    height: 22rem;
+    object-fit: cover;
+    object-position: center 30%;
+    /* REVISAR DESPUES */
+}
+
+/* Botón de catálogo completo */
+.btn-float-all {
+    background-color: #1F2E33;
+    color: #ffffff;
+    border-radius: 4px;
+    padding: 0.75rem 2rem;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+
+.btn-float-all:hover {
+    background-color: #2c3f46;
+    color: #ffffff;
+}
+
+/* RESPONSIVO PARA CELULARES Y TABLETS */
+@media (max-width: 1057px) {
+    .float-section {
+        padding-inline: 1.25rem;
+        padding-block: 3rem;
+    }
+}
+
+/* ------------------- SECCIÓN INSTALACIONES --------------------- */
+
+.instalaciones-section {
+    background-color: #F6F3ED;
+    /* Vuelve al fondo general clásico de la página */
+    padding-inline: 6rem;
+    padding-block: 4rem;
+}
+
+.instalacion-card {
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 4px;
+    background-color: #ffffff;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.instalacion-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+.instalacion-img {
+    width: 100%;
+    height: 20rem;
+    object-fit: cover;
+    display: block;
+}
+
+/* Botón de instalaciones completas */
+.btn-instalaciones-all {
+    background-color: #1F2E33;
+    color: #ffffff;
+    border-radius: 4px;
+    padding: 0.75rem 2rem;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+
+.btn-instalaciones-all:hover {
+    background-color: #2c3f46;
+    color: #ffffff;
+}
+
+/* RESPONSIVO PARA CELULARES Y TABLETS */
+@media (max-width: 1057px) {
+    .instalaciones-section {
+        padding-inline: 1.25rem;
+        padding-block: 3rem;
+    }
+}
+
+/* ------------------- SECCIÓN CONTACTO --------------------- */
+
+.contacto-section {
+    background-color: #1F2E33;
+    /* Fondo oscuro institucional */
+    padding-inline: 6rem;
+    padding-block: 5rem;
+}
+
+/* Tarjeta o contenedor del formulario con el tono claro #EFEADE */
+.contacto-form-wrapper {
+    background-color: #EFEADE;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* Líneas divisorias sutiles para los datos de contacto */
+.contacto-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Campos de entrada del formulario */
+.contacto-input {
+    background-color: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    font-size: 0.95rem;
+    color: #1F2E33;
+}
+
+.contacto-input:focus {
+    background-color: #ffffff;
+    border-color: #c29b14;
+    box-shadow: 0 0 0 0.2rem rgba(194, 155, 20, 0.25);
+}
+
+/* Botón de enviar mensaje */
+.btn-enviar {
+    background-color: #c29b14;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+
+.btn-enviar:hover {
+    background-color: #aa8610;
+    color: #ffffff;
+}
+
+/* RESPONSIVO PARA CELULARES Y TABLETS */
+@media (max-width: 1057px) {
+    .contacto-section {
+        padding-inline: 1.25rem;
+        padding-block: 3rem;
+    }
+}
+
+/* ------------------- FOOTER --------------------- */
+
+.footer-section {
+    background-color: #162226;
+    /* Mantiene la misma línea institucional oscura */
+    padding-inline: 6rem;
+    padding-top: 4rem;
+    padding-bottom: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-link {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: color 0.2s ease;
+    font-size: 0.95rem;
+}
+
+.footer-link:hover {
+    color: #c29b14;
+    /* Tono dorado corporativo al pasar el cursor */
+}
+
+/* RESPONSIVO PARA CELULARES Y TABLETS */
+@media (max-width: 1057px) {
+    .footer-section {
+        padding-inline: 1.25rem;
+        padding-top: 3rem;
+    }
+}
+
+/* Estilos base para ambos mensajes de texto */
+.msg {
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 10px 0;
+    line-height: 1.5;
+}
+
+/* Variante de Éxito (Verde) */
+.msg-success {
+    color: #1e7e34;
+}
+
+/* Variante de Error (Rojo) */
+.msg-error {
+    color: #bd2130;
+    background-color: #ddbbbb;
+}
+
+/* ------------------- ANIMACIONES AL HACER SCROLL --------------------- */
+
+/* Estado inicial: oculto y ligeramente desplazado.
+   No afecta el layout, solo opacidad/transform, así que nada visual cambia
+   una vez que el elemento ya apareció. */
+.reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+}
+
+.reveal.reveal-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Variante para elementos que entran desde la izquierda (texto) */
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-32px);
+    transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+}
+
+.reveal-left.reveal-visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Variante para elementos que entran desde la derecha (ej. cuadro de años) */
+.reveal-right {
+    opacity: 0;
+    transform: translateX(32px);
+    transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+}
+
+.reveal-right.reveal-visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Escalonado (stagger) para grupos de tarjetas: cada una aparece
+   un poco después que la anterior gracias a --reveal-delay */
+.reveal[style*="--reveal-delay"],
+.reveal-left[style*="--reveal-delay"],
+.reveal-right[style*="--reveal-delay"] {
+    transition-delay: var(--reveal-delay, 0s);
+}
+
+/* Respeta a usuarios que prefieren menos movimiento */
+@media (prefers-reduced-motion: reduce) {
+
+    .reveal,
+    .reveal-left,
+    .reveal-right {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}

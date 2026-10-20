@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo</title>
+    <link rel="icon" type="image/x-icon" href="/assets/img/favicon.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="/styles/polizas.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+    <nav class="topbar-container">
+        <!-- Barra principal superior -->
+        <div class="topbar">
+            <!-- Logo y subtítulo a la izquierda -->
+            <div class="topbar-logo d-flex flex-column">
+                <a href="/index.html" class="text-black text-decoration-none">
+                    <span class="fw-bold fst-italic fs-6 fs-lg-5">Funeraria</span>
+                </a>
+                <small class="text-muted" style="font-size: 0.75rem;">La Paz, B.C.S</small>
+            </div>
+
+            <!-- OPCIONES PARA COMPUTADORA -->
+            <div class="topbar-options d-none d-lg-flex align-items-center gap-5">
+                <a href="/index.html" class="topbar-item">INICIO</a>
+                <a href="carrozas.html" class="topbar-item">CARROZAS</a>
+                <a href="/views/catalogue.html" class="topbar-item">CATÁLOGO</a>
+                <a href="polizas.html" class="topbar-item active">PÓLIZAS</a>
+                <a href="instalaciones.html" class="topbar-item">INSTALACIONES</a>
+            </div>
+            <!-- SECCIÓN PARA MÓVIL / TABLET -->
+            <div class="d-flex d-lg-none align-items-center gap-3">
+                <!-- Botón hamburguesa conectado al menú desplegable -->
+                <button class="btn text-black p-1 border-0" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#mobileMenu" aria-controls="mobileMenu" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor"
+                        class="bi bi-list" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- MENÚ DESPLEGABLE PARA MÓVIL -->
+        <div class="collapse d-lg-none bg-white border-bottom border-light" id="mobileMenu">
+            <div class="d-flex flex-column gap-3 py-3" style="padding-left: 1.25rem;">
+                <a href="/index.html" class="topbar-menu-item text-black py-1">Inicio</a>
+                <a href="/views/carrozas.html" class="topbar-menu-item text-black py-1">Carrozas</a>
+                <a href="/views/catalogue.html" class="topbar-menu-item text-black py-1">Catálogo</a>
+                <a href="/views/polizas.html" class="topbar-menu-item text-black py-1">Pólizas</a>
+                <a href="/views/instalaciones.html" class="topbar-menu-item text-black py-1">Instalaciones</a>
+            </div>
+        </div>
+    </nav>
+    <!-- HERO DE LA VISTA PÓLIZAS -->
+    <section class="polizas-hero text-center">
+        <div class="mx-auto" style="max-width: 48rem;">
+            <!-- Subtítulo superior -->
+            <h6 class="text-uppercase fw-bold mb-3" style="color: #c29b14; letter-spacing: 1.5px; font-size: 0.85rem;">
+                Pólizas de previsión
+            </h6>
+
+            <!-- Título principal -->
+            <h1 class="fw-bold mb-3" style="font-size: clamp(2rem, 3.5vw, 3rem); line-height: 1.2;">
+                Protege a tu familia con anticipación
+            </h1>
+
+            <!-- Descripción adaptada a pólizas -->
+            <p class="text-white-50 mb-0" style="font-size: 1rem; line-height: 1.6;">
+                Nuestros planes de previsión están diseñados para brindar tranquilidad y estabilidad económica ante
+                cualquier momento inesperado.
+            </p>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE PÓLIZAS DINÁMICAS -->
+    <section class="polizas-content-section">
+
+        <!-- Pestañas superiores (Selector) -->
+        <div class="text-center mb-5">
+            <div class="catalog-tabs">
+                <button class="catalog-tab-btn active" id="btn-individual"
+                    onclick="switchPoliza('individual')">Individual</button>
+                <button class="catalog-tab-btn" id="btn-familiar" onclick="switchPoliza('familiar')">Familiar</button>
+            </div>
+        </div>
+
+        <!-- Contenedor dinámico principal (Grid de 2 columnas: Izquierda tarjeta oscura, Derecha beneficios) -->
+        <div class="row g-5 align-items-stretch polizas-grid-animation" id="polizaContainer">
+            <!-- El contenido se inyectará dinámicamente mediante JavaScript -->
+        </div>
+
+    </section>
+
+    <!-- SECCIÓN DE PREGUNTAS FRECUENTES -->
+    <section class="faq-section">
+
+        <!-- Encabezado de la sección -->
+        <div class="text-center mb-5">
+            <h6 class="text-uppercase fw-bold mb-2" style="color: #c29b14; letter-spacing: 1.5px; font-size: 0.85rem;">
+                Preguntas frecuentes
+            </h6>
+            <h2 class="fw-bold fst-italic text-dark fs-3 mb-3">
+                Todo lo que tu familia necesita, en un solo lugar
+            </h2>
+            <p class="text-muted small mx-auto" style="max-width: 36rem; line-height: 1.6;">
+                Contamos con instalaciones propias y personal capacitado para atender cada detalle con respeto.
+            </p>
+        </div>
+
+        <!-- Acordeón de Preguntas -->
+        <div class="accordion faq-custom-accordion" id="faqAccordion">
+
+            <!-- Pregunta 1 (Abierta por defecto) -->
+            <div class="faq-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="faq-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                        aria-expanded="true" aria-controls="collapseOne">
+                        <span>¿Cuál es el costo de una póliza?</span>
+                        <span class="faq-icon fs-4 fw-light">+</span>
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                    data-bs-parent="#faqAccordion">
+                    <div class="faq-body">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        laboris.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pregunta 2 -->
+            <div class="faq-item">
+                <h2 class="accordion-header" id="headingTwo">
+                    <button class="faq-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        <span>¿Cuáles son los requisitos de contratación?</span>
+                        <span class="faq-icon fs-4 fw-light">+</span>
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                    data-bs-parent="#faqAccordion">
+                    <div class="faq-body">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed
+                        cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pregunta 3 -->
+            <div class="faq-item">
+                <h2 class="accordion-header" id="headingThree">
+                    <button class="faq-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        <span>¿Se puede transferir el plan a otra persona?</span>
+                        <span class="faq-icon fs-4 fw-light">+</span>
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                    data-bs-parent="#faqAccordion">
+                    <div class="faq-body">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sagittis ipsum. Praesent mauris.
+                        Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer-section text-white">
+
+        <!-- Contenido principal del footer (3 columnas) -->
+        <div class="row g-4 justify-content-between mb-5">
+
+            <!-- Columna 1: Información de la empresa -->
+            <div class="col-12 col-lg-5">
+                <h5 class="fw-bold mb-3 text-white">Funeraria</h5>
+                <p class="text-white-50 small mb-0" style="line-height: 1.6; max-width: 28rem; text-align: justify;">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean bibendum lorem nunc, sed sodales dui
+                    venenatis sed. In lacinia eros at porttitor pellentesque.
+                </p>
+            </div>
+
+            <!-- Columna 2: Navegación -->
+            <div class="col-6 col-lg-3">
+                <h6 class="text-uppercase fw-bold mb-3 small" style="color: #c29b14; letter-spacing: 1px;">Navegación
+                </h6>
+                <ul class="list-unstyled d-flex flex-column gap-2 mb-0">
+                    <li><a href="#sectionServices" class="footer-link">Servicios</a></li>
+                    <li><a href="#sectionCatalogue" class="footer-link">Catálogo</a></li>
+                    <li><a href="#sectionPoliza" class="footer-link">Pólizas</a></li>
+                    <li><a href="#sectionInstalaciones" class="footer-link">Instalaciones</a></li>
+                </ul>
+            </div>
+
+            <!-- Columna 3: Contacto -->
+            <div class="col-6 col-lg-3">
+                <h6 class="text-uppercase fw-bold mb-3 small" style="color: #c29b14; letter-spacing: 1px;">Contacto</h6>
+                <ul class="list-unstyled d-flex flex-column gap-2 mb-0">
+                    <li><a href="tel:6121961598" class="footer-link">000-000-0000</a></li>
+                    <li><a href="#" class="footer-link">Whatsapp</a></li>
+                    <li><a href="#" class="footer-link">Cómo llegar</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- Línea divisoria inferior -->
+        <hr class="border-secondary opacity-25 mb-4">
+
+        <!-- Derechos de autor -->
+        <div class="text-center text-white-50 small">
+            &copy; <span id="year"></span> Empresa funeraria. Todos los derechos reservados.
+        </div>
+
+    </footer>
+    <a class="whats-app" href="#" target="_blank">
+        <img src="/assets/img/whatsapp-icon.svg" class="my-float" alt="WhatsApp" width="30" height="30">
+    </a>
+    <!-- BARRA LATERAL SOCIAL FLOTANTE -->
+    <div class="social-sidebar">
+
+        <!-- Facebook -->
+        <a href="https://facebook.com" target="_blank" class="social-item social-facebook" aria-label="Facebook">
+            <span class="social-text">Facebook</span>
+            <div class="social-icon">
+                <img src="/assets/img/facebook-icon.svg" class="my-float" alt="Facebook">
+            </div>
+        </a>
+
+        <!-- Instagram -->
+        <a href="https://instagram.com" target="_blank" class="social-item social-instagram" aria-label="Instagram">
+            <span class="social-text">Instagram</span>
+            <div class="social-icon">
+                <img src="/assets/img/instagram-icon.svg" class="my-float" alt="instagram">
+            </div>
+        </a>
+
+        <!-- X (Twitter) -->
+        <a href="https://twitter.com" target="_blank" class="social-item social-twitter" aria-label="X (Twitter)">
+            <span class="social-text">Síguenos</span>
+            <div class="social-icon">
+                <img src="/assets/img/twitter-icon.svg" class="my-float" alt="Twitter">
+            </div>
+        </a>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">
+    </script>
+
+    <!-- Animaciones al hacer scroll (reveal on scroll) -->
+    <script>
+        (function () {
+            var revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+
+            if (!('IntersectionObserver' in window)) {
+                // Fallback: si el navegador no soporta IntersectionObserver, mostrar todo directo
+                revealElements.forEach(function (el) {
+                    el.classList.add('reveal-visible');
+                });
+                return;
+            }
+
+            var observer = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('reveal-visible');
+                        observer.unobserve(entry.target); // Solo anima una vez
+                    }
+                });
+            }, {
+                root: null,
+                rootMargin: '0px 0px -2% 0px', // Se activa un poco antes de llegar al final del viewport
+                threshold: 0.15
+            });
+
+            revealElements.forEach(function (el) {
+                observer.observe(el);
+            });
+        })();
+    </script>
+    <!-- SCRIPT DE DATOS Y CAMBIO DINÁMICO -->
+    <script>
+        // Base de datos de pólizas
+        const polizasData = {
+            individual: {
+                title: "PLAN INDIVIDUAL",
+                description: "Pensada para una sola persona. Es transferible: puedes usarla tú mismo o cederla a quien tú decidas en el futuro.",
+                buttonText: "Solicitar información",
+                buttonLink: "#contacto",
+                benefits: [{
+                        title: "Cobertura vitalicia",
+                        desc: "La póliza queda activa a partir de las 24 horas de tu inscripción y se mantiene mientras esté vigente tu convenio."
+                    },
+                    {
+                        title: "Transferible",
+                        desc: "Puedes ceder tu póliza a un familiar o a la persona que tú elijas."
+                    },
+                    {
+                        title: "Servicio completo",
+                        desc: "Capilla, traslado en carroza, y trámites básicos quedan cubiertos según el plan que elijas."
+                    },
+                    {
+                        title: "Sin límite de edad",
+                        desc: "Puedes adquirir el servicio siempre y cuando cumplas con la mayoría de edad."
+                    }
+                ]
+            },
+            familiar: {
+                title: "PLAN FAMILIAR",
+                description: "Protección personal y familiar integral para salvaguardar el bienestar de tus seres queridos.",
+                buttonText: "Solicitar información",
+                buttonLink: "#contacto",
+                benefits: [{
+                        title: "Protege a varios integrantes",
+                        desc: "Incluye a los miembros de tu familia que definas al momento de contratar, bajo una sola póliza."
+                    },
+                    {
+                        title: "Aportación mensual accesible",
+                        desc: "El monto está pensado con el fin de no afectar tu economía de golpe."
+                    },
+                    {
+                        title: "Utilizable a partir del año siguiente",
+                        desc: "Capilla, traslado en carroza, y trámites básicos quedan cubiertos según el plan que elijas."
+                    }
+                ]
+            }
+        };
+
+        function switchPoliza(tipo) {
+            // 1. Cambiar estado activo de los botones del selector
+            document.querySelectorAll('.catalog-tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(`btn-${tipo}`).classList.add('active');
+
+            // 2. Obtener los datos correspondientes al tipo seleccionado
+            const data = polizasData[tipo];
+            const container = document.getElementById('polizaContainer');
+
+            // 3. Aplicar animación de desvanecimiento
+            container.classList.remove('polizas-grid-animation');
+            void container.offsetWidth; // Forzar reflow para reiniciar animación
+            container.classList.add('polizas-grid-animation');
+
+            // 4. Generar el HTML de los beneficios usando un bucle
+            let benefitsHtml = '';
+            data.benefits.forEach(benefit => {
+                benefitsHtml += `
+                    <div class="poliza-benefit-item">
+                        <div class="benefit-icon-circle">
+                            <img src="/assets/img/check-icon.svg" class="my-float" alt="check">
+                        </div>
+                        <div>
+                            <h5 class="fw-bold text-dark fs-5 mb-1">${benefit.title}</h5>
+                            <p class="text-muted small mb-0" style="line-height: 1.6;">${benefit.desc}</p>
+                        </div>
+                    </div>
+                `;
+            });
+
+            // 5. Inyectar la estructura completa de las dos columnas
+            container.innerHTML = `
+                <!-- Columna Izquierda: Tarjeta resumen oscura -->
+                <div class="col-12 col-lg-5">
+                    <div class="poliza-summary-card">
+                        <div>
+                            <h6 class="text-uppercase fw-bold mb-3" style="color: #c29b14; letter-spacing: 1.5px; font-size: 1rem;">PÓLIZAS</h6>
+                            <h6 class="text-uppercase fw-bold mb-3" style="color: #fffff; letter-spacing: 1.5px; font-size: 1rem;">${data.title}</h6>
+                            <p class="text-white-50 mb-4" style="line-height: 1.7; font-size: 1rem;">
+                                ${data.description}
+                            </p>
+                        </div>
+                        <div>
+                            <a href="${data.buttonLink}" class="btn btn-poliza-action w-100 py-3">${data.buttonText}</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Lista dinámica de beneficios -->
+                <div class="col-12 col-lg-7">
+                    <div class="bg-white p-4 p-md-5 rounded-3 border border-light shadow-sm d-flex flex-column gap-4">
+                        ${benefitsHtml}
+                    </div>
+                </div>
+            `;
+        }
+
+        // Cargar por defecto la póliza individual al iniciar y revelar la página sin parpadeos
+        document.addEventListener("DOMContentLoaded", function () {
+            switchPoliza('individual');
+            document.body.classList.add('loaded');
+        });
+    </script>
+    <script>
+        // Mostrar la página suavemente una vez que todo esté renderizado
+        document.addEventListener("DOMContentLoaded", function () {
+            // Aseguramos que cargue los productos primero
+            switchPoliza('individual');
+
+            // Revelamos el body sin parpadeos
+            document.body.classList.add('loaded');
+        });
+    </script>
+    <!-- SCRIPT OPCIONAL PARA CAMBIAR EL ÍCONO DE + A - AL EXPANDIR -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const accordionItems = document.querySelectorAll('.faq-item');
+
+            accordionItems.forEach(item => {
+                const button = item.querySelector('.faq-button');
+                const collapse = item.querySelector('.accordion-collapse');
+                const icon = button.querySelector('.faq-icon');
+
+                collapse.addEventListener('show.bs.collapse', function () {
+                    icon.textContent = "−";
+                });
+
+                collapse.addEventListener('hide.bs.collapse', function () {
+                    icon.textContent = "+";
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
